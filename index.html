@@ -4,756 +4,532 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Rapido — N°1 Livraison COD en Guinée | Cash on Delivery partout en Guinée</title>
-<meta name="description" content="Rapido est la N°1 de la livraison Cash on Delivery en Guinée. Stockage, confirmation téléphonique, livraison COD à domicile et collecte cash — 70 000 GNF par commande livrée. Livraison partout en Guinée.">
-<meta name="robots" content="index, follow">
-<meta name="author" content="Rapido Guinée">
-<meta name="geo.region" content="GN">
-<link rel="canonical" href="https://www.rapido.gn/">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.rapido.gn/">
-<meta property="og:title" content="Rapido — N°1 Livraison COD en Guinée">
-<meta property="og:description" content="La N°1 du Cash on Delivery en Guinée. 70 000 GNF tout inclus. Livraison partout en Guinée.">
+<meta name="description" content="Rapido est la N°1 de la livraison Cash on Delivery en Guinée. 70 000 GNF par commande livrée. Livraison partout en Guinée.">
 <meta name="theme-color" content="#A70000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{background:#fff;color:#1a1a1a;font-family:'Barlow',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+:root{--red:#A70000;--red-light:#fff0f0;--ink:#1a1a1a;--muted:#5e5e5e;--muted-2:#8a8a8a;--line:rgba(0,0,0,.1);--ease:cubic-bezier(.16,1,.3,1);--green:#00cc44}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
-:root{
-  --red:#A70000;
-  --red-light:#fff0f0;
-  --red-mid:rgba(167,0,0,.08);
-  --ink:#1a1a1a;
-  --ink-2:#333;
-  --muted:#5e5e5e;
-  --muted-2:#8a8a8a;
-  --line:rgba(0,0,0,.1);
-  --ease:cubic-bezier(.16,1,.3,1);
-  --spring:cubic-bezier(.34,1.56,.64,1);
-}
+/* PROGRESS */
+#prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#A70000,#ff4444);z-index:9999;width:0%;transition:width .08s linear}
 
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-}
-
-/* ── PROGRESS ── */
-#prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#A70000,#ff4444);z-index:9999;width:0%;transition:width .08s linear;box-shadow:0 0 8px rgba(167,0,0,.5)}
-
-/* ── NAV ── */
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:space-between;padding:0 56px;border-bottom:1px solid transparent;transition:all .3s}
 nav.stuck{border-color:var(--line);box-shadow:0 2px 20px rgba(0,0,0,.08)}
-.n-logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:5px;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px;transition:opacity .2s}
-.n-logo:hover{opacity:.8}
+.n-logo{font-family:'Bebas Neue';font-size:24px;letter-spacing:5px;color:var(--ink);text-decoration:none}
 .n-logo span{color:var(--red)}
 .n-links{display:flex;align-items:center;gap:2px;list-style:none}
-.n-links a{color:var(--muted);text-decoration:none;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:8px 14px;transition:color .2s;position:relative}
-.n-links a::after{content:'';position:absolute;bottom:4px;left:14px;right:14px;height:1.5px;background:var(--red);transform:scaleX(0);transition:transform .25s var(--ease)}
-.n-links a:hover{color:var(--ink)}
-.n-links a:hover::after{transform:scaleX(1)}
-.n-links a.active{color:var(--ink)}
-.n-links a.active::after{transform:scaleX(1)}
-.n-cta{background:var(--red)!important;color:#fff!important;padding:9px 22px!important;letter-spacing:2px!important;transition:all .2s!important;position:relative!important;overflow:hidden!important}
-.n-cta::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.15);transform:translateX(-101%);transition:transform .25s}
-.n-cta:hover{color:#fff!important}
-.n-cta:hover::before{transform:translateX(0)}
-.n-cta::after{display:none!important}
+.n-links a{color:var(--muted);text-decoration:none;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:8px 14px;transition:color .2s}
+.n-links a:hover,.n-links a.active{color:var(--ink)}
+.n-cta{background:var(--red)!important;color:#fff!important;padding:9px 22px!important}
+.n-cta:hover{background:#850000!important}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
-.hamburger span{display:block;width:22px;height:2px;background:var(--ink);transition:all .3s}
-
-/* ── MOBILE MENU ── */
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink)}
 .mob{position:fixed;inset:0;background:#fff;z-index:510;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s,visibility .3s}
 .mob.open{opacity:1;visibility:visible;pointer-events:auto}
-.mob a{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:4px;color:var(--ink);text-decoration:none;transition:all .25s;line-height:1.1;transform:translateY(10px);opacity:0}
-.mob.open a{transform:translateY(0);opacity:1}
-.mob a:hover{color:var(--red);letter-spacing:6px}
-.mob-close{position:absolute;top:20px;right:24px;background:none;border:none;font-size:28px;cursor:pointer;color:var(--ink)}
+.mob a{font-family:'Bebas Neue';font-size:48px;letter-spacing:4px;color:var(--ink);text-decoration:none;line-height:1.1}
+.mob a:hover{color:var(--red)}
+.mob-close{position:absolute;top:20px;right:24px;background:none;border:none;font-size:28px;cursor:pointer}
 
-/* ═══════════════════════════════
-   HERO
-═══════════════════════════════ */
-.hero{min-height:100svh;display:flex;flex-direction:column;padding-top:64px;position:relative;overflow:hidden;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw)}
+/* HERO */
+.hero{min-height:100svh;display:flex;flex-direction:column;padding-top:64px;overflow:hidden;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw)}
 .hero-body{display:grid;grid-template-columns:1fr 1fr;flex:1}
-.hero-l{padding:80px 56px 60px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid var(--line);position:relative;background:#fff}
+
+/* HERO LEFT */
+.hero-l{padding:80px 56px 60px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid var(--line)}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;margin-bottom:32px}
 .hero-tag-dot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(167,0,0,.4)}50%{box-shadow:0 0 0 6px rgba(167,0,0,0)}}
 .hero-tag-text{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red)}
-.hero-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(90px,12vw,168px);line-height:.82;letter-spacing:-2px;color:var(--ink);margin-bottom:36px}
-.hero-h1 em{display:block;color:var(--red);font-style:normal;animation:shimmer 3s ease-in-out infinite}
-@keyframes shimmer{0%,100%{opacity:1}50%{opacity:.85}}
+.hero-h1{font-family:'Bebas Neue';font-size:clamp(90px,12vw,168px);line-height:.82;letter-spacing:-2px;color:var(--ink);margin-bottom:36px}
+.hero-h1 em{display:block;color:var(--red);font-style:normal}
 .hero-desc{font-size:16px;color:var(--muted);line-height:1.8;font-weight:300;max-width:380px;margin-bottom:40px}
-<img src="/Copilote_20260419_114537.png" alt="Equipe Rapido" style="width:100%;max-width:500px;margin-top:20px">.hero-desc strong{color:var(--ink);font-weight:600}
+.hero-desc strong{color:var(--ink);font-weight:600}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;padding:15px 30px;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;transition:all .25s var(--ease);position:relative;overflow:hidden}
-.btn-primary::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.12);transform:translateX(-101%);transition:transform .25s}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(167,0,0,.28)}
-.btn-primary:hover::before{transform:translateX(0)}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;padding:15px 30px;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;transition:all .25s}
+.btn-primary:hover{background:#850000;transform:translateY(-2px);box-shadow:0 14px 36px rgba(167,0,0,.28)}
 .btn-sec{display:inline-flex;align-items:center;gap:8px;color:var(--ink);padding:15px 24px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--line);transition:all .25s}
-.btn-sec:hover{border-color:var(--ink);transform:translateY(-1px)}
-.hero-r{background:var(--red);padding:80px 56px 60px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
-.hero-r::before{content:'COD';position:absolute;bottom:-20px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:260px;color:rgba(255,255,255,.05);line-height:1;pointer-events:none;letter-spacing:-10px}
-.hero-r-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:40px}
-.hero-stats{display:flex;flex-direction:column;gap:0}
-.h-stat{padding:28px 0;border-bottom:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:space-between;gap:16px;transition:all .25s;cursor:default}
-.h-stat:last-child{border-bottom:none}
-.h-stat:hover{padding-left:10px;background:rgba(255,255,255,.04);padding-right:4px;border-radius:4px}
-.h-stat-num{font-family:'Bebas Neue',sans-serif;font-size:64px;color:#fff;line-height:1}
-.h-stat-info{text-align:right}
-.h-stat-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.h-stat-desc{font-size:12px;color:rgba(255,255,255,.4);margin-top:4px;font-weight:300}
-.hero-r-cta{margin-top:40px}
-.hero-r-cta a{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:all .25s}
-.hero-r-cta a:hover{background:rgba(255,255,255,.2);padding-left:26px}
+.btn-sec:hover{border-color:var(--ink)}
+.hero-stats-mini{margin-top:40px;padding-top:32px;border-top:1px solid var(--line);display:flex;gap:36px;flex-wrap:wrap}
+.hsm-num{font-family:'Bebas Neue';font-size:36px;color:var(--red);line-height:1}
+.hsm-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:2px}
+
+/* HERO RIGHT — CARTE GUINÉE */
+.hero-r{background:#08120a;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.hero-r-header{padding:32px 40px 8px;position:relative;z-index:2}
+.badge-green{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px}
+.badge-green-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:glow 2s infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(0,204,68,.5)}50%{box-shadow:0 0 0 5px rgba(0,204,68,0)}}
+.badge-green-text{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,204,68,.8)}
+.hero-r-title{font-family:'Bebas Neue';font-size:clamp(26px,3vw,40px);color:#fff;letter-spacing:2px;line-height:1.05}
+.hero-r-title em{color:var(--green);font-style:normal}
+.hero-r-sub{font-size:10px;color:rgba(255,255,255,.3);margin-top:6px;font-weight:300;letter-spacing:.5px}
+.map-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:8px 24px;position:relative}
+.map-wrap svg{width:100%;height:auto;max-height:380px}
+.hero-r-zones{padding:0 32px 24px;display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.hz{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);padding:7px 10px;border-left:2px solid rgba(0,204,68,.35);transition:all .2s;cursor:default}
+.hz:hover{background:rgba(0,204,68,.05);border-left-color:var(--green)}
+.hz-name{font-size:9.5px;font-weight:700;color:#fff;letter-spacing:.3px}
+.hz-delay{font-size:8.5px;color:rgba(0,204,68,.65);margin-top:1px}
 
 /* TICKER */
-.hero-ticker{height:44px;border-top:1px solid var(--line);overflow:hidden;background:#fff;position:relative}
+.hero-ticker{height:44px;border-top:1px solid var(--line);overflow:hidden;background:#fff;position:relative;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw)}
 .hero-ticker::before,.hero-ticker::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;pointer-events:none}
 .hero-ticker::before{left:0;background:linear-gradient(90deg,#fff,transparent)}
 .hero-ticker::after{right:0;background:linear-gradient(270deg,#fff,transparent)}
-.ticker-inner{display:flex;gap:0;width:max-content;animation:ticker 30s linear infinite}
+.ticker-inner{display:flex;width:max-content;animation:ticker 30s linear infinite}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .ticker-item{display:flex;align-items:center;height:44px;padding:0 28px;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);white-space:nowrap;gap:28px}
 .ticker-item span{color:var(--red)}
 
-/* ═══════════════════════════════
-   SECTIONS COMMON
-═══════════════════════════════ */
+/* STATS STRIP */
+.stats-strip{background:var(--red);padding:48px 0;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw)}
+.stats-strip-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:1280px;margin:0 auto;padding:0 56px}
+.stat-box{text-align:center;padding:0 20px;border-right:1px solid rgba(255,255,255,.15)}
+.stat-box:last-child{border-right:none}
+.stat-box-num{font-family:'Bebas Neue';font-size:clamp(48px,5vw,68px);color:#fff;line-height:1}
+.stat-box-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:8px;font-weight:700}
+
+/* BANDEROLE PHOTOS */
+.slideshow-wrap{background:#090909;overflow:hidden;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw)}
+.slideshow-header{padding:40px 56px 24px;display:flex;align-items:center;justify-content:space-between}
+.slideshow-title{font-family:'Bebas Neue';font-size:clamp(28px,4vw,48px);color:#fff;letter-spacing:2px}
+.slideshow-title em{color:var(--red);font-style:normal}
+.slideshow-sub{font-size:11px;color:rgba(255,255,255,.3);letter-spacing:1px;margin-top:4px}
+.slideshow-track-wrap{overflow:hidden;position:relative}
+.slideshow-track-wrap::before,.slideshow-track-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.slideshow-track-wrap::before{left:0;background:linear-gradient(90deg,#090909,transparent)}
+.slideshow-track-wrap::after{right:0;background:linear-gradient(270deg,#090909,transparent)}
+.slideshow-track{display:flex;gap:12px;width:max-content;animation:slide 32s linear infinite;padding:0 12px 32px}
+.slideshow-track:hover{animation-play-state:paused}
+@keyframes slide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.slide-card{width:260px;height:190px;flex-shrink:0;border-radius:4px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.07)}
+.slide-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.slide-card:hover img{transform:scale(1.06)}
+.slide-card-label{position:absolute;bottom:0;left:0;right:0;padding:10px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:11px;font-weight:700;letter-spacing:1px;color:#fff;text-transform:uppercase}
+.slide-placeholder{width:260px;height:190px;flex-shrink:0;border-radius:4px;border:1px solid rgba(255,255,255,.06);background:linear-gradient(135deg,#141414,#1e1212);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:default}
+.slide-placeholder-icon{font-size:36px;opacity:.35}
+.slide-placeholder-text{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.25);text-align:center}
+.slide-placeholder-add{font-size:9px;color:rgba(167,0,0,.4);letter-spacing:1px}
+
+/* HOW IT WORKS */
 .section-full{width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);box-sizing:border-box}
 .wrap{max-width:1280px;margin:0 auto;padding:0 56px}
 .section-sm{padding:100px 0}
 .eyebrow{display:flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
 .eyebrow::before{content:'';width:20px;height:1.5px;background:var(--red)}
-.big-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,6vw,88px);line-height:.9;letter-spacing:1px;color:var(--ink);margin-bottom:24px}
+.big-title{font-family:'Bebas Neue';font-size:clamp(52px,6vw,88px);line-height:.9;letter-spacing:1px;color:var(--ink);margin-bottom:24px}
 .big-title em{display:block;color:var(--red);font-style:normal}
-.lead{font-size:17px;color:var(--muted);line-height:1.8;font-weight:300;max-width:540px}
-
-/* Animations */
 .anim,.anim-l,.anim-r,.stagger{opacity:0;transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.anim{transform:translateY(24px)}
-.anim-l{transform:translateX(-24px)}
-.anim-r{transform:translateX(24px)}
+.anim{transform:translateY(24px)}.anim-l{transform:translateX(-24px)}.anim-r{transform:translateX(24px)}
 .anim.in,.anim-l.in,.anim-r.in,.stagger.in{opacity:1;transform:none}
 .stagger>*{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .stagger.in>*{opacity:1;transform:none}
-.stagger.in>*:nth-child(1){transition-delay:.05s}
-.stagger.in>*:nth-child(2){transition-delay:.1s}
-.stagger.in>*:nth-child(3){transition-delay:.15s}
-.stagger.in>*:nth-child(4){transition-delay:.2s}
+.stagger.in>*:nth-child(1){transition-delay:.05s}.stagger.in>*:nth-child(2){transition-delay:.1s}
+.stagger.in>*:nth-child(3){transition-delay:.15s}.stagger.in>*:nth-child(4){transition-delay:.2s}
 .stagger.in>*:nth-child(5){transition-delay:.25s}
-.stagger.in>*:nth-child(6){transition-delay:.3s}
 
-/* ═══════════════════════════════
-   STATS STRIP
-═══════════════════════════════ */
-.stats-strip{background:var(--red);padding:48px 0;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw)}
-.stats-strip-inner{display:grid;grid-template-columns:repeat(4,1fr);max-width:1280px;margin:0 auto;padding:0 56px;gap:1px;position:relative}
-.stats-strip-inner::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.1);pointer-events:none;clip-path:polygon(0 0,1px 0,1px 100%,0 100%)}
-.stat-box{text-align:center;padding:0 32px;border-right:1px solid rgba(255,255,255,.15)}
-.stat-box:last-child{border-right:none}
-.stat-box-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,5vw,72px);color:#fff;line-height:1;position:relative;display:inline-block}
-.stat-box-num::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:rgba(255,255,255,.3);transform:scaleX(0);transition:transform .4s}
-.stat-box:hover .stat-box-num::after{transform:scaleX(1)}
-.stat-box-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:8px;font-weight:700}
-
-/* ═══════════════════════════════
-   HOW IT WORKS
-═══════════════════════════════ */
 .how-wrap{background:#f8f7f4;border-top:1px solid var(--line)}
 .how-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;margin-top:64px;background:var(--line)}
-.how-step{background:#f8f7f4;padding:40px 32px;position:relative;transition:background .25s;overflow:hidden}
-.how-step::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transition:transform .35s var(--ease)}
+.how-step{background:#f8f7f4;padding:40px 32px;transition:background .25s;overflow:hidden;position:relative}
+.how-step::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transition:transform .35s}
 .how-step:hover{background:#fff}
 .how-step:hover::after{transform:scaleX(1)}
-.step-num{font-family:'Bebas Neue',sans-serif;font-size:80px;color:var(--red);opacity:.12;line-height:1;margin-bottom:20px;transition:opacity .25s}
-.how-step:hover .step-num{opacity:.25}
-.step-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ink);margin-bottom:10px}
+.step-num{font-family:'Bebas Neue';font-size:80px;color:var(--red);opacity:.12;line-height:1;margin-bottom:20px}
+.step-title{font-family:'Barlow Condensed';font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ink);margin-bottom:10px}
 .step-desc{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300}
 .how-cta{margin-top:1px;background:#fff;border-top:1px solid var(--line);padding:36px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.how-cta-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,3vw,36px);color:var(--ink)}
-.how-cta-sub{font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:.5px}
+.how-cta-text{font-family:'Bebas Neue';font-size:clamp(24px,3vw,36px);color:var(--ink)}
+.how-cta-sub{font-size:12px;color:var(--muted);margin-top:4px}
 
-/* ═══════════════════════════════
-   GUINEA MAP SECTION
-═══════════════════════════════ */
-.map-section{background:#0a0a0a;padding:100px 0;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);position:relative;overflow:hidden}
-.map-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(167,0,0,.15) 0%,transparent 70%)}
-.map-header{text-align:center;margin-bottom:64px;position:relative;z-index:2}
-.map-eyebrow{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(167,0,0,.8);margin-bottom:16px;display:flex;align-items:center;justify-content:center;gap:12px}
-.map-eyebrow::before,.map-eyebrow::after{content:'';width:40px;height:1px;background:rgba(167,0,0,.4)}
-.map-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,7vw,100px);color:#fff;line-height:.9;letter-spacing:1px}
-.map-title em{color:#A70000;font-style:normal}
-.map-subtitle{font-size:16px;color:rgba(255,255,255,.4);margin-top:20px;font-weight:300;letter-spacing:.5px}
-.map-container{display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:center;max-width:1280px;margin:0 auto;padding:0 56px;position:relative;z-index:2}
-.map-svg-wrap{position:relative}
-.map-svg-wrap svg{width:100%;height:auto;filter:drop-shadow(0 0 40px rgba(0,200,80,.08))}
+/* CARTE SECTION PLEINE LARGEUR */
+.map-section{background:#07100a;padding:80px 0;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw)}
+.map-section-inner{max-width:1280px;margin:0 auto;padding:0 56px;display:grid;grid-template-columns:1fr 320px;gap:60px;align-items:center}
+.map-s-title{font-family:'Bebas Neue';font-size:clamp(48px,6vw,80px);color:#fff;line-height:.9;margin-bottom:14px}
+.map-s-title em{color:var(--green);font-style:normal}
+.map-s-sub{font-size:14px;color:rgba(255,255,255,.35);font-weight:300;line-height:1.7;margin-bottom:28px;max-width:500px}
+.mzl{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-left:3px solid rgba(0,204,68,.3);margin-bottom:6px;transition:all .2s}
+.mzl:hover{background:rgba(0,204,68,.04);border-left-color:var(--green)}
+.mzl-left{display:flex;align-items:center;gap:8px}
+.mzl-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:glow 2s infinite;flex-shrink:0}
+.mzl-name{font-size:12px;font-weight:700;color:#fff}
+.mzl-delay{font-size:11px;color:rgba(0,204,68,.7);font-weight:600}
 
-/* Guinea SVG map prefectures */
-.prefecture{fill:#1a2a1a;stroke:#0a0a0a;stroke-width:0.8;transition:fill .3s;cursor:pointer}
-.prefecture:hover{fill:#1e3a1e}
-.prefecture.active{fill:none;animation:mapGlow 2.5s ease-in-out infinite}
-@keyframes mapGlow{
-  0%,100%{fill:#0d3d1a;stroke:#00cc44;stroke-width:1.5}
-  50%{fill:#145c28;stroke:#22ff66;stroke-width:2}
-}
-.prefecture.hub{animation:mapHub 1.8s ease-in-out infinite}
-@keyframes mapHub{
-  0%,100%{fill:#0a2e12;stroke:#00ff55;stroke-width:2}
-  50%{fill:#1a5c30;stroke:#55ff88;stroke-width:3}
-}
-.map-dot{position:absolute;width:12px;height:12px;border-radius:50%;background:#00cc44;border:2px solid rgba(0,204,68,.3);animation:dotPulse 2s infinite}
-@keyframes dotPulse{
-  0%{box-shadow:0 0 0 0 rgba(0,204,68,.5)}
-  70%{box-shadow:0 0 0 12px rgba(0,204,68,0)}
-  100%{box-shadow:0 0 0 0 rgba(0,204,68,0)}
-}
-.coverage-label{position:absolute;background:rgba(0,204,68,.1);border:1px solid rgba(0,204,68,.3);color:#00cc44;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;pointer-events:none;white-space:nowrap;border-radius:2px}
-
-/* Map legend/zones */
-.map-zones{display:flex;flex-direction:column;gap:12px}
-.map-zone-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:18px 20px;border-left:3px solid rgba(0,204,68,.3);transition:all .3s;cursor:default}
-.map-zone-card:hover,.map-zone-card.highlight{background:rgba(0,204,68,.05);border-left-color:#00cc44;transform:translateX(4px)}
-.map-zone-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-.map-zone-name{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff}
-.map-zone-badge{display:flex;align-items:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00cc44}
-.map-zone-dot{width:6px;height:6px;border-radius:50%;background:#00cc44;animation:dotPulse 2s infinite}
-.map-zone-sub{font-size:12px;color:rgba(255,255,255,.35);font-weight:300}
-.map-zone-delay{font-size:11px;color:rgba(0,204,68,.7);margin-top:6px;font-weight:600}
-.map-footer{text-align:center;margin-top:48px;position:relative;z-index:2}
-.map-footer-text{font-size:13px;color:rgba(255,255,255,.3);letter-spacing:.5px;margin-bottom:24px}
-.btn-map-cta{display:inline-flex;align-items:center;gap:10px;background:#A70000;color:#fff;padding:16px 32px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;transition:all .25s;border:1px solid transparent}
-.btn-map-cta:hover{background:transparent;border-color:#A70000;color:#fff;transform:translateY(-2px)}
-
-/* ═══════════════════════════════
-   TESTIMONIALS
-═══════════════════════════════ */
+/* TESTIMONIALS */
 .testi-wrap{background:#fff;border-top:1px solid var(--line)}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:64px}
-.testi-card{background:#f8f7f4;padding:36px;border-top:3px solid transparent;transition:all .35s;position:relative;overflow:hidden;cursor:default}
-.testi-card::before{content:'';position:absolute;inset:0;background:var(--red);transform:scaleY(0);transform-origin:bottom;transition:transform .35s var(--ease);z-index:0}
-.testi-card:hover{border-top-color:var(--red);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.1)}
-.testi-card>*{position:relative;z-index:1}
-.testi-stars{color:var(--red);font-size:13px;letter-spacing:3px;margin-bottom:16px;transition:color .35s}
-.testi-quote{font-family:'Bebas Neue',sans-serif;font-size:60px;color:rgba(167,0,0,.07);line-height:1;position:absolute;top:16px;right:20px;transition:color .35s}
-.testi-text{font-size:14px;color:var(--ink-2);line-height:1.75;font-weight:300;margin-bottom:22px;transition:color .35s}
+.testi-card{background:#f8f7f4;padding:36px;border-top:3px solid transparent;transition:all .35s;position:relative}
+.testi-card:hover{border-top-color:var(--red);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.1);background:#fff}
+.testi-stars{color:var(--red);font-size:13px;letter-spacing:3px;margin-bottom:16px}
+.testi-quote{font-family:'Bebas Neue';font-size:60px;color:rgba(167,0,0,.07);line-height:1;position:absolute;top:16px;right:20px}
+.testi-text{font-size:14px;color:#333;line-height:1.75;font-weight:300;margin-bottom:22px}
 .testi-author{display:flex;align-items:center;gap:12px}
-.testi-avatar{width:38px;height:38px;background:var(--red);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:14px;color:#fff;flex-shrink:0;transition:background .35s}
-.testi-name{font-size:14px;font-weight:700;color:var(--ink);transition:color .35s}
-.testi-role{font-size:11px;color:var(--muted);margin-top:1px;transition:color .35s}
+.testi-avatar{width:38px;height:38px;background:var(--red);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue';font-size:14px;color:#fff;flex-shrink:0}
+.testi-name{font-size:14px;font-weight:700;color:var(--ink)}
+.testi-role{font-size:11px;color:var(--muted);margin-top:1px}
 
-/* ═══════════════════════════════
-   MEGA CTA
-═══════════════════════════════ */
+/* CTA */
 .cta-wrap{background:var(--red);padding:100px 56px;text-align:center;position:relative;overflow:hidden;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw)}
 .cta-wrap::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px);background-size:48px 48px}
-.cta-wrap::after{content:'GUINÉE';position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',sans-serif;font-size:220px;color:rgba(0,0,0,.08);white-space:nowrap;letter-spacing:-5px;pointer-events:none}
-.cta-proof{display:inline-flex;align-items:center;gap:10px;background:rgba(0,0,0,.15);padding:7px 18px;margin-bottom:28px;position:relative;z-index:1}
-.cta-proof-avs{display:flex}
-.cta-av{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:9px;color:#fff;margin-left:-6px}
-.cta-av:first-child{margin-left:0}
-.cta-proof-text{font-size:11px;color:rgba(255,255,255,.75);letter-spacing:.5px}
-.cta-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(60px,9vw,120px);line-height:.88;color:#fff;margin-bottom:16px;position:relative;z-index:1}
+.cta-h2{font-family:'Bebas Neue';font-size:clamp(60px,9vw,120px);line-height:.88;color:#fff;margin-bottom:16px;position:relative;z-index:1}
 .cta-p{font-size:17px;font-weight:300;color:rgba(255,255,255,.75);max-width:500px;margin:0 auto 40px;line-height:1.75;position:relative;z-index:1}
 .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
-.btn-wa-big{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:18px 36px;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-family:'Barlow Condensed',sans-serif;transition:all .25s}
-.btn-wa-big:hover{background:#1da854;transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.2)}
-.btn-cta-sec{display:inline-flex;align-items:center;gap:10px;color:#fff;padding:18px 28px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:2px solid rgba(255,255,255,.35);transition:all .25s}
-.btn-cta-sec:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:18px 36px;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-family:'Barlow Condensed';transition:all .25s}
+.btn-wa:hover{background:#1da854;transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;color:#fff;padding:18px 28px;font-family:'Barlow Condensed';font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:2px solid rgba(255,255,255,.35);transition:all .25s}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.1)}
 .cta-stats{display:flex;justify-content:center;gap:56px;margin-top:56px;padding-top:48px;border-top:1px solid rgba(255,255,255,.15);flex-wrap:wrap;position:relative;z-index:1}
-.cs{text-align:center}
-.cs-n{font-family:'Bebas Neue',sans-serif;font-size:44px;color:#fff;line-height:1}
-.cs-l{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:4px}
+.cs-n{font-family:'Bebas Neue';font-size:44px;color:#fff;line-height:1;text-align:center}
+.cs-l{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:4px;text-align:center}
 .cs-sep{width:1px;background:rgba(255,255,255,.15)}
 
-/* ═══════════════════════════════
-   PARTNER BAND
-═══════════════════════════════ */
-.partner-wrap{background:linear-gradient(135deg,#A70000 0%,#7a0000 100%);padding:80px 56px;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);position:relative;overflow:hidden}
-.partner-wrap::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px}
-.partner-inner{max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:1}
-.partner-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,72px);color:#fff;letter-spacing:2px;line-height:1;margin-bottom:20px}
-.partner-p{font-size:16px;color:rgba(255,255,255,.85);max-width:600px;margin:0 auto 36px;line-height:1.6;font-weight:300}
-.partner-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn-partner-primary{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--red);padding:18px 32px;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-family:'Barlow Condensed',sans-serif;transition:all .25s;border-radius:4px}
-.btn-partner-primary:hover{background:#FCD116;transform:translateY(-2px)}
-.btn-partner-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:18px 32px;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-family:'Barlow Condensed',sans-serif;transition:all .25s;border-radius:4px}
-.btn-partner-wa:hover{background:#1da854;transform:translateY(-2px)}
-
-/* ═══════════════════════════════
-   FOOTER
-═══════════════════════════════ */
+/* FOOTER */
 footer{background:#fff;padding:60px 56px;border-top:3px solid var(--red);width:100vw;max-width:100vw;margin-left:calc(50% - 50vw)}
 .f-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;max-width:1280px;margin:0 auto}
-.f-logo{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:4px;color:var(--ink);margin-bottom:12px}
+.f-logo{font-family:'Bebas Neue';font-size:34px;letter-spacing:4px;color:var(--ink);margin-bottom:12px}
 .f-logo span{color:var(--red)}
 .f-desc{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;max-width:260px;margin-bottom:10px}
 .f-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(167,0,0,.4)}
-.f-col h5{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--ink);margin-bottom:18px;font-weight:700;font-family:'Barlow Condensed',sans-serif}
+.f-col h5{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--ink);margin-bottom:18px;font-weight:700;font-family:'Barlow Condensed'}
 .f-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.f-col ul a{color:var(--muted);text-decoration:none;font-size:13px;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
-.f-col ul a::before{content:'→';opacity:0;transform:translateX(-6px);transition:all .2s;font-size:11px;color:var(--red)}
-.f-col ul a:hover{color:var(--red);padding-left:14px}
-.f-col ul a:hover::before{opacity:1;transform:none}
+.f-col ul a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s}
+.f-col ul a:hover{color:var(--red)}
 .f-bottom{max-width:1280px;margin:36px auto 0;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.f-bottom p{font-size:11px;color:var(--muted-2);letter-spacing:.5px}
+.f-bottom p{font-size:11px;color:var(--muted-2)}
 .f-legal{display:flex;gap:20px}
-.f-legal a{font-size:11px;color:var(--muted-2);text-decoration:none;transition:color .2s}
+.f-legal a{font-size:11px;color:var(--muted-2);text-decoration:none}
 .f-legal a:hover{color:var(--red)}
 
-/* AI CHAT */
+/* AI */
 #aiBubble{position:fixed;bottom:28px;right:28px;z-index:400;cursor:pointer;width:56px;height:56px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(167,0,0,.35);transition:all .25s;border:none}
-#aiBubble:hover{transform:scale(1.08);box-shadow:0 12px 40px rgba(167,0,0,.4)}
-#aiNotif{position:absolute;top:-4px;right:-4px;width:14px;height:14px;background:#FF4444;border-radius:50%;border:2px solid #fff;display:none;animation:pulse 2s infinite}
-#aiPanel{position:fixed;bottom:100px;right:28px;width:340px;background:#fff;border:1px solid var(--line);box-shadow:0 24px 64px rgba(0,0,0,.14);z-index:400;display:flex;flex-direction:column;max-height:480px;border-radius:8px;opacity:0;pointer-events:none;transform:translateY(16px) scale(.97);transition:all .3s var(--ease)}
+#aiBubble:hover{transform:scale(1.08)}
+#aiNotif{position:absolute;top:-4px;right:-4px;width:14px;height:14px;background:#FF4444;border-radius:50%;border:2px solid #fff;display:none}
+#aiPanel{position:fixed;bottom:100px;right:28px;width:340px;background:#fff;border:1px solid var(--line);box-shadow:0 24px 64px rgba(0,0,0,.14);z-index:400;display:flex;flex-direction:column;max-height:480px;border-radius:8px;opacity:0;pointer-events:none;transform:translateY(16px);transition:all .3s}
 #aiPanel.open{opacity:1;pointer-events:auto;transform:none}
 .ai-header{background:var(--red);padding:16px 18px;display:flex;align-items:center;justify-content:space-between;border-radius:8px 8px 0 0}
-.ai-header-left{display:flex;align-items:center;gap:10px}
-.ai-h-dot{width:8px;height:8px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite;flex-shrink:0}
-.ai-h-name{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;color:#fff}
-.ai-h-sub{font-size:10px;color:rgba(255,255,255,.6);margin-top:1px}
-.ai-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:24px;height:24px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
-.ai-close:hover{background:rgba(255,255,255,.25)}
+.ai-h-dot{width:8px;height:8px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+.ai-h-name{font-family:'Barlow Condensed';font-size:14px;font-weight:700;letter-spacing:1px;color:#fff;margin-left:8px}
+.ai-h-sub{font-size:10px;color:rgba(255,255,255,.6);margin-top:1px;margin-left:8px}
+.ai-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:24px;height:24px;border-radius:50%;font-size:14px;cursor:pointer}
 #aiMsgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;min-height:180px}
-.ai-msg{display:flex}
-.ai-msg.user{justify-content:flex-end}
+.ai-msg.user{justify-content:flex-end;display:flex}
+.ai-msg.bot{display:flex}
 .ai-bubble{max-width:85%;padding:10px 14px;font-size:13px;line-height:1.5;border-radius:12px}
 .ai-msg.bot .ai-bubble{background:#f4f4f2;color:var(--ink);border-radius:4px 12px 12px 12px}
 .ai-msg.user .ai-bubble{background:var(--red);color:#fff;border-radius:12px 4px 12px 12px}
 .ai-typing{display:flex;gap:4px;padding:6px}
 .ai-typing span{width:6px;height:6px;border-radius:50%;background:#ccc;animation:typing 1.2s infinite}
-.ai-typing span:nth-child(2){animation-delay:.2s}
-.ai-typing span:nth-child(3){animation-delay:.4s}
+.ai-typing span:nth-child(2){animation-delay:.2s}.ai-typing span:nth-child(3){animation-delay:.4s}
 @keyframes typing{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 #aiSuggs{padding:0 16px 8px;display:flex;flex-wrap:wrap;gap:6px}
-.ai-sugg{background:#f4f4f2;border:none;padding:6px 12px;font-size:11px;font-weight:600;color:var(--ink);cursor:pointer;border-radius:12px;transition:all .2s;letter-spacing:.3px}
+.ai-sugg{background:#f4f4f2;border:none;padding:6px 12px;font-size:11px;font-weight:600;color:var(--ink);cursor:pointer;border-radius:12px;transition:all .2s}
 .ai-sugg:hover{background:var(--red-light);color:var(--red)}
 .ai-input-row{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--line)}
-#aiIn{flex:1;border:1.5px solid var(--line);padding:9px 14px;font-family:'Barlow',sans-serif;font-size:13px;outline:none;border-radius:6px;transition:border-color .2s}
+#aiIn{flex:1;border:1.5px solid var(--line);padding:9px 14px;font-family:'Barlow';font-size:13px;outline:none;border-radius:6px;transition:border-color .2s}
 #aiIn:focus{border-color:var(--red)}
-#aiSend{background:var(--red);color:#fff;border:none;padding:9px 16px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;cursor:pointer;border-radius:6px;transition:background .2s}
-#aiSend:hover{background:#850000}
+#aiSend{background:var(--red);color:#fff;border:none;padding:9px 16px;font-family:'Barlow Condensed';font-size:12px;font-weight:700;letter-spacing:1px;cursor:pointer;border-radius:6px}
 
-/* ═══════════════════════════════
-   RESPONSIVE
-═══════════════════════════════ */
+/* RESPONSIVE */
 @media(max-width:900px){
-  nav{padding:0 24px}
-  .n-links{display:none}
-  .hamburger{display:flex}
-  .hero-body{grid-template-columns:1fr}
-  .hero-r{display:none}
-  .hero-l{padding:60px 24px 48px}
-  .hero-h1{font-size:clamp(72px,18vw,120px)}
-  .stats-strip-inner{grid-template-columns:repeat(2,1fr);gap:24px}
-  .stat-box{border-right:none;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:24px}
-  .stat-box:nth-child(even){border-right:none}
-  .stat-box:last-child,.stat-box:nth-last-child(2){border-bottom:none}
+  nav{padding:0 24px}.n-links{display:none}.hamburger{display:flex}
+  .hero-body{grid-template-columns:1fr}.hero-r{display:none}
+  .hero-l{padding:60px 24px 48px}.hero-h1{font-size:clamp(72px,18vw,120px)}
+  .stats-strip-inner{grid-template-columns:repeat(2,1fr);padding:0 24px}
   .how-steps{grid-template-columns:1fr}
-  .map-container{grid-template-columns:1fr;gap:40px}
   .testi-grid{grid-template-columns:1fr}
   .cta-wrap{padding:64px 24px}
-  .cta-stats{gap:32px}
+  .map-section-inner{grid-template-columns:1fr;padding:0 24px}
+  .slideshow-header{padding:32px 24px 16px}
   .f-inner{grid-template-columns:1fr 1fr;gap:32px}
-  footer{padding:40px 24px}
-  .wrap{padding:0 24px}
-  .map-container{padding:0 24px}
+  footer{padding:40px 24px}.wrap{padding:0 24px}
 }
-@media(max-width:480px){
-  .stats-strip-inner{grid-template-columns:1fr 1fr}
-  .stat-box{padding:0 16px 20px}
-  .f-inner{grid-template-columns:1fr}
-  .cta-stats{gap:24px}
-  .cs-sep{display:none}
-}
+@media(max-width:480px){.f-inner{grid-template-columns:1fr}.hero-r-zones{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<div id="prog" role="progressbar" aria-hidden="true"></div>
+<div id="prog"></div>
 
-<!-- NAV -->
-<nav id="navbar" role="navigation">
-  <a href="index.html" class="n-logo" aria-label="Rapido — Accueil">RAPIDO<span>.</span></a>
+<nav id="navbar">
+  <a href="index.html" class="n-logo">RAPIDO<span>.</span></a>
   <ul class="n-links">
     <li><a href="index.html" class="active">Accueil</a></li>
     <li><a href="services.html">Services</a></li>
     <li><a href="tarifs.html">Tarifs</a></li>
-    <li><a href="index.html#zones">Couverture</a></li>
-    <li><a href="index.html#avis">Témoignages</a></li>
-    <li><a href="index.html#contact" class="n-cta">Démarrer →</a></li>
+    <li><a href="#zones">Couverture</a></li>
+    <li><a href="#avis">Témoignages</a></li>
+    <li><a href="https://wa.me/2246220000000?text=Bonjour%20Rapido%20%F0%9F%9A%80" target="_blank" rel="noopener" class="n-cta">Démarrer →</a></li>
   </ul>
-  <button class="hamburger" onclick="toggleMob()" aria-label="Menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- MOBILE MENU -->
-<div class="mob" id="mob" role="dialog" aria-modal="true">
-  <button class="mob-close" onclick="closeMob()" aria-label="Fermer">✕</button>
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="closeMob()">✕</button>
   <a href="index.html" onclick="closeMob()">Accueil</a>
   <a href="services.html" onclick="closeMob()">Services</a>
   <a href="tarifs.html" onclick="closeMob()">Tarifs</a>
-  <a href="index.html#zones" onclick="closeMob()">Couverture</a>
-  <a href="index.html#avis" onclick="closeMob()">Avis</a>
-  <a href="https://wa.me/2246220000000?text=Bonjour%20Rapido%20%F0%9F%9A%80" target="_blank" rel="noopener" onclick="closeMob()" style="color:#25D366;font-size:36px">WhatsApp →</a>
+  <a href="#zones" onclick="closeMob()">Couverture</a>
+  <a href="#avis" onclick="closeMob()">Avis</a>
+  <a href="https://wa.me/2246220000000" target="_blank" onclick="closeMob()" style="color:#25D366">WhatsApp →</a>
 </div>
 
 <main>
 
-<!-- ════════════ HERO ════════════ -->
-<section class="hero" aria-label="Rapido — N°1 Livraison COD en Guinée">
+<!-- HERO -->
+<section class="hero">
   <div class="hero-body">
+
+    <!-- GAUCHE -->
     <div class="hero-l">
       <div>
         <div class="hero-tag"><span class="hero-tag-dot"></span><span class="hero-tag-text">N°1 COD · Partout en Guinée 🇬🇳</span></div>
         <h1 class="hero-h1">LIVRÉ<br>VITE.<br><em>LIVRÉ BIEN.</em></h1>
         <p class="hero-desc">La première société de livraison <strong>Cash on Delivery</strong> en Guinée. Confirmation, stockage, livraison COD et collecte cash — <strong>70 000 GNF</strong> par commande livrée, partout en Guinée.</p>
-        <img src="/Copilote_20260419_114537.png" alt="Equipe Rapido" style="width:100%;max-width:500px;margin-top:20px;display:block">div class="hero-btns">
-          <a href="https://wa.me/2246220000000?text=Bonjour%20Rapido%2C%20je%20veux%20d%C3%A9marrer%20%F0%9F%9A%80" target="_blank" rel="noopener" class="btn-primary" data-cta="hero_wa">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        <div class="hero-btns">
+          <a href="https://wa.me/2246220000000?text=Bonjour%20Rapido%2C%20je%20veux%20d%C3%A9marrer%20%F0%9F%9A%80" target="_blank" rel="noopener" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
             Démarrer maintenant
           </a>
           <a href="tarifs.html" class="btn-sec">Voir les tarifs →</a>
         </div>
       </div>
-      <div style="margin-top:40px;padding-top:32px;border-top:1px solid var(--line);display:flex;gap:40px;flex-wrap:wrap">
-        <div><div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--red)">95%</div><div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700">Confirmation</div></div>
-        <div><div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--red)">45<span style="font-size:18px">min</span></div><div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700">Conakry</div></div>
-        <div><div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--red)">0</div><div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700">Frais fixes</div></div>
+      <div class="hero-stats-mini">
+        <div><div class="hsm-num">70K</div><div class="hsm-label">GNF/commande</div></div>
+        <div><div class="hsm-num">95%</div><div class="hsm-label">Confirmation</div></div>
+        <div><div class="hsm-num">45<span style="font-size:.5em">min</span></div><div class="hsm-label">Conakry</div></div>
+        <div><div class="hsm-num">0</div><div class="hsm-label">Frais fixes</div></div>
       </div>
     </div>
-    <div class="hero-r" aria-hidden="true">
-      <div class="hero-r-label">Performances Rapido · Guinée</div>
-      <div class="hero-stats">
-        <div class="h-stat">
-          <div class="h-stat-num">70K</div>
-          <div class="h-stat-info">
-            <div class="h-stat-label">GNF / Commande</div>
-            <div class="h-stat-desc">Tout inclus · Facturation au succès</div>
-          </div>
-        </div>
-        <div class="h-stat">
-          <div class="h-stat-num">95%</div>
-          <div class="h-stat-info">
-            <div class="h-stat-label">Taux de confirmation</div>
-            <div class="h-stat-desc">Agents dédiés · Avant expédition</div>
-          </div>
-        </div>
-        <div class="h-stat">
-          <div class="h-stat-num">2×</div>
-          <div class="h-stat-info">
-            <div class="h-stat-label">Reversement / semaine</div>
-            <div class="h-stat-desc">Orange Money · MTN · USDT Binance</div>
-          </div>
-        </div>
+
+    <!-- DROITE — CARTE GUINÉE ANIMÉE -->
+    <div class="hero-r">
+      <div class="hero-r-header">
+        <div class="badge-green"><span class="badge-green-dot"></span><span class="badge-green-text">Couverture nationale active</span></div>
+        <div class="hero-r-title">ON LIVRE<br><em>PARTOUT EN GUINÉE</em></div>
+        <div class="hero-r-sub">Toutes les préfectures · Même tarif · 70 000 GNF</div>
       </div>
-      <div class="hero-r-cta">
-        <a href="index.html#zones" aria-label="Voir la carte de couverture">
-          <span>🇬🇳 Couverture nationale — Toutes préfectures</span>
-          <span>→</span>
-        </a>
+
+      <div class="map-wrap">
+        <svg viewBox="0 0 500 480" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="gf"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <!-- Fond carte -->
+          <path d="M75,125 L55,105 L38,90 L28,112 L20,142 L26,172 L42,182 L52,202 L46,222 L52,248 L70,262 L88,255 L106,272 L128,292 L150,305 L170,322 L190,315 L210,332 L230,348 L250,342 L270,358 L290,368 L310,362 L330,378 L350,388 L370,382 L390,398 L410,392 L430,408 L450,402 L468,417 L476,408 L468,382 L460,355 L466,325 L448,305 L438,282 L420,260 L400,250 L380,240 L360,230 L340,220 L320,210 L300,200 L280,210 L260,200 L240,183 L220,173 L200,160 L180,150 L160,140 L140,130 L120,120 L100,130 Z"
+                fill="#0d1e0d" stroke="rgba(0,204,68,0.2)" stroke-width="1.5"/>
+
+          <!-- CONAKRY HUB -->
+          <circle cx="60" cy="228" r="9" fill="#00cc44" filter="url(#gf)">
+            <animate attributeName="r" values="7;13;7" dur="1.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="60" cy="228" r="18" fill="none" stroke="#00cc44" stroke-width="1.5" opacity="0.25">
+            <animate attributeName="r" values="13;22;13" dur="1.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.25;0;0.25" dur="1.5s" repeatCount="indefinite"/>
+          </circle>
+          <text x="78" y="224" fill="#00ff55" font-size="9" font-weight="bold" font-family="sans-serif">CONAKRY</text>
+          <text x="78" y="235" fill="rgba(0,204,68,0.55)" font-size="7.5" font-family="sans-serif">45 min ⚡</text>
+
+          <!-- Autres villes -->
+          <circle cx="128" cy="218" r="4.5" fill="#00cc44"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></circle>
+          <text x="136" y="222" fill="rgba(255,255,255,0.65)" font-size="8" font-family="sans-serif">KINDIA</text>
+
+          <circle cx="93" cy="110" r="4.5" fill="#00cc44"><animate attributeName="opacity" values="1;0.35;1" dur="2.5s" begin="0.6s" repeatCount="indefinite"/></circle>
+          <text x="101" y="114" fill="rgba(255,255,255,0.65)" font-size="8" font-family="sans-serif">BOKÉ</text>
+
+          <circle cx="193" cy="166" r="4.5" fill="#00cc44"><animate attributeName="opacity" values="1;0.35;1" dur="2.1s" begin="0.2s" repeatCount="indefinite"/></circle>
+          <text x="201" y="170" fill="rgba(255,255,255,0.65)" font-size="8" font-family="sans-serif">LABÉ</text>
+
+          <circle cx="198" cy="243" r="4.5" fill="#00cc44"><animate attributeName="opacity" values="1;0.35;1" dur="1.9s" begin="0.8s" repeatCount="indefinite"/></circle>
+          <text x="206" y="247" fill="rgba(255,255,255,0.65)" font-size="8" font-family="sans-serif">MAMOU</text>
+
+          <circle cx="268" cy="276" r="4.5" fill="#00cc44"><animate attributeName="opacity" values="1;0.35;1" dur="2.4s" begin="0.4s" repeatCount="indefinite"/></circle>
+          <text x="276" y="280" fill="rgba(255,255,255,0.65)" font-size="8" font-family="sans-serif">FARANAH</text>
+
+          <circle cx="352" cy="250" r="4.5" fill="#00cc44"><animate attributeName="opacity" values="1;0.35;1" dur="2.2s" begin="1s" repeatCount="indefinite"/></circle>
+          <text x="360" y="254" fill="rgba(255,255,255,0.65)" font-size="8" font-family="sans-serif">KANKAN</text>
+
+          <circle cx="330" cy="356" r="4.5" fill="#00cc44"><animate attributeName="opacity" values="1;0.35;1" dur="2.6s" begin="0.5s" repeatCount="indefinite"/></circle>
+          <text x="315" y="372" fill="rgba(255,255,255,0.65)" font-size="7.5" font-family="sans-serif">N'ZÉRÉKORÉ</text>
+
+          <circle cx="438" cy="240" r="4.5" fill="#00cc44"><animate attributeName="opacity" values="1;0.35;1" dur="2s" begin="0.9s" repeatCount="indefinite"/></circle>
+          <text x="415" y="232" fill="rgba(255,255,255,0.65)" font-size="7.5" font-family="sans-serif">SIGUIRI</text>
+
+          <circle cx="270" cy="390" r="4.5" fill="#00cc44"><animate attributeName="opacity" values="1;0.35;1" dur="2.3s" begin="0.7s" repeatCount="indefinite"/></circle>
+          <text x="278" y="394" fill="rgba(255,255,255,0.65)" font-size="7" font-family="sans-serif">GUÉCKÉDOU</text>
+
+          <!-- Routes animées -->
+          <line x1="60" y1="228" x2="128" y2="218" stroke="#00cc44" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"><animate attributeName="stroke-dashoffset" values="0;-14" dur="1.5s" repeatCount="indefinite"/></line>
+          <line x1="60" y1="228" x2="93" y2="110" stroke="#00cc44" stroke-width="1" stroke-dasharray="4,3" opacity="0.3"><animate attributeName="stroke-dashoffset" values="0;-14" dur="2s" repeatCount="indefinite"/></line>
+          <line x1="128" y1="218" x2="193" y2="166" stroke="#00cc44" stroke-width="1" stroke-dasharray="4,3" opacity="0.28"><animate attributeName="stroke-dashoffset" values="0;-14" dur="1.8s" repeatCount="indefinite"/></line>
+          <line x1="128" y1="218" x2="198" y2="243" stroke="#00cc44" stroke-width="1" stroke-dasharray="4,3" opacity="0.28"><animate attributeName="stroke-dashoffset" values="0;-14" dur="2.1s" repeatCount="indefinite"/></line>
+          <line x1="198" y1="243" x2="268" y2="276" stroke="#00cc44" stroke-width="1" stroke-dasharray="4,3" opacity="0.22"><animate attributeName="stroke-dashoffset" values="0;-14" dur="2s" repeatCount="indefinite"/></line>
+          <line x1="268" y1="276" x2="352" y2="250" stroke="#00cc44" stroke-width="1" stroke-dasharray="4,3" opacity="0.2"><animate attributeName="stroke-dashoffset" values="0;-14" dur="2.4s" repeatCount="indefinite"/></line>
+          <line x1="352" y1="250" x2="438" y2="240" stroke="#00cc44" stroke-width="1" stroke-dasharray="4,3" opacity="0.18"><animate attributeName="stroke-dashoffset" values="0;-14" dur="2.2s" repeatCount="indefinite"/></line>
+          <line x1="268" y1="276" x2="330" y2="356" stroke="#00cc44" stroke-width="1" stroke-dasharray="4,3" opacity="0.18"><animate attributeName="stroke-dashoffset" values="0;-14" dur="2.5s" repeatCount="indefinite"/></line>
+          <line x1="330" y1="356" x2="270" y2="390" stroke="#00cc44" stroke-width="1" stroke-dasharray="4,3" opacity="0.18"><animate attributeName="stroke-dashoffset" values="0;-14" dur="1.8s" repeatCount="indefinite"/></line>
+
+          <!-- Badge -->
+          <rect x="135" y="438" width="230" height="24" rx="3" fill="rgba(0,204,68,0.08)" stroke="rgba(0,204,68,0.22)" stroke-width="1"/>
+          <text x="250" y="454" text-anchor="middle" fill="#00cc44" font-size="8.5" font-weight="bold" font-family="sans-serif" letter-spacing="1.5">✓ ACTIF PARTOUT EN GUINÉE</text>
+        </svg>
+      </div>
+
+      <div class="hero-r-zones">
+        <div class="hz"><div class="hz-name">🏙️ Conakry</div><div class="hz-delay">~45 min</div></div>
+        <div class="hz"><div class="hz-name">🌿 Kindia · Coyah</div><div class="hz-delay">24–48h</div></div>
+        <div class="hz"><div class="hz-name">⛏️ Boké · Fria</div><div class="hz-delay">24–48h</div></div>
+        <div class="hz"><div class="hz-name">🏔️ Labé · Mamou</div><div class="hz-delay">24–72h</div></div>
+        <div class="hz"><div class="hz-name">🌾 Kankan · Siguiri</div><div class="hz-delay">48–72h</div></div>
+        <div class="hz"><div class="hz-name">🌳 N'Zérékoré</div><div class="hz-delay">48–72h</div></div>
       </div>
     </div>
   </div>
-  <div class="hero-ticker" aria-hidden="true">
+
+  <!-- TICKER -->
+  <div class="hero-ticker">
     <div class="ticker-inner">
       <span class="ticker-item">N°1 COD en Guinée <span>●</span></span>
       <span class="ticker-item">70 000 GNF tout inclus <span>●</span></span>
       <span class="ticker-item">95% de confirmation <span>●</span></span>
       <span class="ticker-item">Livraison partout en Guinée <span>●</span></span>
-      <span class="ticker-item">Livraison 45 min à Conakry <span>●</span></span>
+      <span class="ticker-item">45 min à Conakry <span>●</span></span>
       <span class="ticker-item">Sourcing Chine & Dubaï <span>●</span></span>
       <span class="ticker-item">Reversement 2×/semaine <span>●</span></span>
       <span class="ticker-item">N°1 COD en Guinée <span>●</span></span>
       <span class="ticker-item">70 000 GNF tout inclus <span>●</span></span>
       <span class="ticker-item">95% de confirmation <span>●</span></span>
       <span class="ticker-item">Livraison partout en Guinée <span>●</span></span>
-      <span class="ticker-item">Livraison 45 min à Conakry <span>●</span></span>
+      <span class="ticker-item">45 min à Conakry <span>●</span></span>
       <span class="ticker-item">Sourcing Chine & Dubaï <span>●</span></span>
       <span class="ticker-item">Reversement 2×/semaine <span>●</span></span>
     </div>
   </div>
 </section>
 
-<!-- ════════════ STATS STRIP ════════════ -->
+<!-- STATS STRIP -->
 <div class="stats-strip">
   <div class="stats-strip-inner stagger">
-    <div class="stat-box">
-      <div class="stat-box-num">70 000</div>
-      <div class="stat-box-label">GNF par commande livrée</div>
+    <div class="stat-box"><div class="stat-box-num">70 000</div><div class="stat-box-label">GNF / commande livrée</div></div>
+    <div class="stat-box"><div class="stat-box-num">95%</div><div class="stat-box-label">Taux de confirmation</div></div>
+    <div class="stat-box"><div class="stat-box-num">45min</div><div class="stat-box-label">Délai moyen Conakry</div></div>
+    <div class="stat-box"><div class="stat-box-num">0 GNF</div><div class="stat-box-label">Frais sur retours</div></div>
+  </div>
+</div>
+
+<!-- BANDEROLE PHOTOS -->
+<div class="slideshow-wrap">
+  <div class="slideshow-header">
+    <div>
+      <div class="slideshow-title">RAPIDO <em>EN ACTION</em></div>
+      <div class="slideshow-sub">Nos livreurs · Nos équipes · Notre dépôt · Conakry 🇬🇳</div>
     </div>
-    <div class="stat-box">
-      <div class="stat-box-num">95%</div>
-      <div class="stat-box-label">Taux de confirmation</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-box-num">45min</div>
-      <div class="stat-box-label">Délai moyen Conakry</div>
-    </div>
-    <div class="stat-box">
-      <div class="stat-box-num">0 GNF</div>
-      <div class="stat-box-label">Frais sur retours</div>
+    <a href="https://wa.me/2246220000000" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 20px;font-family:'Barlow Condensed';font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:4px;flex-shrink:0">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+      Nous rejoindre
+    </a>
+  </div>
+  <div class="slideshow-track-wrap">
+    <div class="slideshow-track" id="slideTrack">
+      <!-- === TES VRAIES PHOTOS ICI ===
+      Pour ajouter une photo :
+      1. Upload ta photo sur GitHub dans le dossier principal
+      2. Remplace UN placeholder ci-dessous par :
+      <div class="slide-card">
+        <img src="/nom-de-ta-photo.jpg" alt="Description">
+        <div class="slide-card-label">Livreur Rapido</div>
+      </div>
+      ================================ -->
+
+      <div class="slide-placeholder"><div class="slide-placeholder-icon">🏍️</div><div class="slide-placeholder-text">Livreur Rapido</div><div class="slide-placeholder-add">↑ Upload ta photo sur GitHub</div></div>
+      <div class="slide-placeholder"><div class="slide-placeholder-icon">📦</div><div class="slide-placeholder-text">Dépôt Conakry</div><div class="slide-placeholder-add">↑ Upload ta photo sur GitHub</div></div>
+      <div class="slide-placeholder"><div class="slide-placeholder-icon">👥</div><div class="slide-placeholder-text">Notre équipe</div><div class="slide-placeholder-add">↑ Upload ta photo sur GitHub</div></div>
+      <div class="slide-placeholder"><div class="slide-placeholder-icon">🗺️</div><div class="slide-placeholder-text">Livraison Guinée</div><div class="slide-placeholder-add">↑ Upload ta photo sur GitHub</div></div>
+      <div class="slide-placeholder"><div class="slide-placeholder-icon">💵</div><div class="slide-placeholder-text">Collecte Cash</div><div class="slide-placeholder-add">↑ Upload ta photo sur GitHub</div></div>
+      <div class="slide-placeholder"><div class="slide-placeholder-icon">📱</div><div class="slide-placeholder-text">Dashboard CRM</div><div class="slide-placeholder-add">↑ Upload ta photo sur GitHub</div></div>
+      <div class="slide-placeholder"><div class="slide-placeholder-icon">🏍️</div><div class="slide-placeholder-text">Livreur Rapido</div><div class="slide-placeholder-add">↑ Upload ta photo sur GitHub</div></div>
+      <div class="slide-placeholder"><div class="slide-placeholder-icon">📦</div><div class="slide-placeholder-text">Dépôt Conakry</div><div class="slide-placeholder-add">↑ Upload ta photo sur GitHub</div></div>
+      <div class="slide-placeholder"><div class="slide-placeholder-icon">👥</div><div class="slide-placeholder-text">Notre équipe</div><div class="slide-placeholder-add">↑ Upload ta photo sur GitHub</div></div>
+      <div class="slide-placeholder"><div class="slide-placeholder-icon">🗺️</div><div class="slide-placeholder-text">Livraison Guinée</div><div class="slide-placeholder-add">↑ Upload ta photo sur GitHub</div></div>
+      <div class="slide-placeholder"><div class="slide-placeholder-icon">💵</div><div class="slide-placeholder-text">Collecte Cash</div><div class="slide-placeholder-add">↑ Upload ta photo sur GitHub</div></div>
+      <div class="slide-placeholder"><div class="slide-placeholder-icon">📱</div><div class="slide-placeholder-text">Dashboard CRM</div><div class="slide-placeholder-add">↑ Upload ta photo sur GitHub</div></div>
     </div>
   </div>
 </div>
 
-<!-- ════════════ HOW IT WORKS ════════════ -->
+<!-- HOW IT WORKS -->
 <div class="how-wrap section-full section-sm" id="comment">
   <div class="wrap">
     <div class="eyebrow anim">Simple · Rapide · Efficace</div>
     <h2 class="big-title anim">VOUS VENDEZ,<br>ON LIVRE.<br><em>C'EST TOUT.</em></h2>
     <div class="how-steps">
-      <div class="how-step">
-        <div class="step-num">01</div>
-        <div class="step-title">Vous envoyez votre stock</div>
-        <div class="step-desc">Depuis la Chine, Dubaï ou le Maroc directement dans notre dépôt à Conakry. On réceptionne, compte et enregistre dans le CRM.</div>
-      </div>
-      <div class="how-step">
-        <div class="step-num">02</div>
-        <div class="step-title">Vous lancez vos pubs</div>
-        <div class="step-desc">Facebook, TikTok, Instagram — depuis où que vous soyez. Les commandes arrivent automatiquement dans notre CRM via API.</div>
-      </div>
-      <div class="how-step">
-        <div class="step-num">03</div>
-        <div class="step-title">On confirme chaque commande</div>
-        <div class="step-desc">Nos agents appellent chaque client avant expédition. Adresse vérifiée, client disponible. Taux 95%+ de confirmation.</div>
-      </div>
-      <div class="how-step">
-        <div class="step-num">04</div>
-        <div class="step-title">On livre partout en Guinée</div>
-        <div class="step-desc">Le livreur remet le colis au client, collecte le paiement cash à la porte. Retours 0 GNF si client absent.</div>
-      </div>
-      <div class="how-step">
-        <div class="step-num">05</div>
-        <div class="step-title">Vous recevez votre argent</div>
-        <div class="step-desc">Reversement 2× par semaine — Mobile Money ou USDT via Binance. Lundi & Jeudi, sans délai. Où que vous soyez.</div>
-      </div>
+      <div class="how-step"><div class="step-num">01</div><div class="step-title">Vous envoyez votre stock</div><div class="step-desc">Depuis la Chine, Dubaï ou le Maroc directement dans notre dépôt à Conakry.</div></div>
+      <div class="how-step"><div class="step-num">02</div><div class="step-title">Vous lancez vos pubs</div><div class="step-desc">Facebook, TikTok, Instagram — depuis où que vous soyez. Les commandes arrivent automatiquement dans notre CRM.</div></div>
+      <div class="how-step"><div class="step-num">03</div><div class="step-title">On confirme chaque commande</div><div class="step-desc">Nos agents appellent chaque client avant expédition. Taux 95%+ de confirmation.</div></div>
+      <div class="how-step"><div class="step-num">04</div><div class="step-title">On livre partout en Guinée</div><div class="step-desc">Le livreur remet le colis, collecte le paiement cash. Retours 0 GNF si client absent.</div></div>
+      <div class="how-step"><div class="step-num">05</div><div class="step-title">Vous recevez votre argent</div><div class="step-desc">Reversement 2× par semaine — Mobile Money ou USDT via Binance. Lundi & Jeudi.</div></div>
     </div>
     <div class="how-cta">
       <div>
         <div class="how-cta-text">Votre stock à Conakry. Vos pubs lancées. On livre le reste.</div>
         <div class="how-cta-sub">Sans engagement · Sans frais fixes · Onboarding gratuit en 24h</div>
       </div>
-      <a href="https://wa.me/2246220000000?text=Bonjour%20Rapido%2C%20je%20veux%20d%C3%A9marrer%20%F0%9F%9A%80" target="_blank" rel="noopener" class="btn-primary" data-cta="how_wa">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+      <a href="https://wa.me/2246220000000?text=Bonjour%20Rapido%20%F0%9F%9A%80" target="_blank" rel="noopener" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
         Démarrer maintenant
       </a>
     </div>
   </div>
 </div>
 
-<!-- ════════════ CARTE DE GUINÉE ════════════ -->
-<div class="map-section" id="zones" aria-label="Zones de couverture Rapido en Guinée">
-  <div class="map-header anim">
-    <div class="map-eyebrow">Couverture Nationale · 🇬🇳 Toute la Guinée</div>
-    <h2 class="map-title">ON LIVRE<br><em>PARTOUT EN GUINÉE</em></h2>
-    <p class="map-subtitle">Conakry · Kindia · Boké · Mamou · Labé · Faranah · Kankan · N'Zérékoré</p>
-  </div>
-  <div class="map-container">
-    <div class="map-svg-wrap anim-l">
-      <!-- SVG Carte simplifiée de la Guinée avec préfectures -->
-      <svg viewBox="0 0 500 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carte de la Guinée avec zones de livraison Rapido">
-        <defs>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <radialGradient id="hubGrad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#22ff66" stop-opacity="0.3"/>
-            <stop offset="100%" stop-color="#00cc44" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <!-- Fond Guinée general shape -->
-        <path class="prefecture active" d="M 80,120 L 60,100 L 40,90 L 30,110 L 20,140 L 30,170 L 50,180 L 60,200 L 50,220 L 60,250 L 80,270 L 100,260 L 120,280 L 140,300 L 160,310 L 180,330 L 200,320 L 220,340 L 240,360 L 260,350 L 280,370 L 300,380 L 320,370 L 340,390 L 360,400 L 380,390 L 400,410 L 420,400 L 440,420 L 460,410 L 480,430 L 490,420 L 480,390 L 470,360 L 460,330 L 470,300 L 450,280 L 440,260 L 420,240 L 400,250 L 380,240 L 360,230 L 340,220 L 320,210 L 300,200 L 280,210 L 260,200 L 240,180 L 220,170 L 200,160 L 180,150 L 160,140 L 140,130 L 120,120 L 100,130 Z" fill="none"/>
-
-        <!-- Conakry - Hub Principal (presqu'île) -->
-        <ellipse class="prefecture hub" cx="60" cy="235" rx="28" ry="20" filter="url(#glow)"/>
-        <text x="60" y="239" text-anchor="middle" fill="#00ff55" font-size="8" font-weight="bold" font-family="sans-serif">CONAKRY</text>
-
-        <!-- Coyah/Kindia region -->
-        <path class="prefecture active" d="M 90,200 L 110,190 L 140,200 L 160,220 L 150,240 L 130,250 L 110,240 L 90,230 Z"/>
-        <text x="125" y="222" text-anchor="middle" fill="#00cc44" font-size="7" font-family="sans-serif">KINDIA</text>
-
-        <!-- Boké region (Nord-Ouest) -->
-        <path class="prefecture active" d="M 40,100 L 70,80 L 110,70 L 140,90 L 160,110 L 150,140 L 130,150 L 100,140 L 70,130 L 50,115 Z"/>
-        <text x="100" y="115" text-anchor="middle" fill="#00cc44" font-size="7" font-family="sans-serif">BOKÉ</text>
-
-        <!-- Mamou region (Centre) -->
-        <path class="prefecture active" d="M 170,220 L 200,210 L 230,220 L 240,250 L 230,270 L 210,280 L 190,270 L 175,250 Z"/>
-        <text x="207" y="250" text-anchor="middle" fill="#00cc44" font-size="7" font-family="sans-serif">MAMOU</text>
-
-        <!-- Labé region (Fouta Djallon) -->
-        <path class="prefecture active" d="M 150,140 L 190,130 L 220,140 L 240,160 L 240,190 L 220,200 L 200,205 L 175,195 L 160,175 L 155,155 Z"/>
-        <text x="197" y="170" text-anchor="middle" fill="#00cc44" font-size="7" font-family="sans-serif">LABÉ</text>
-
-        <!-- Faranah region -->
-        <path class="prefecture active" d="M 240,250 L 280,240 L 310,255 L 320,280 L 310,305 L 285,315 L 260,310 L 245,290 Z"/>
-        <text x="282" y="282" text-anchor="middle" fill="#00cc44" font-size="7" font-family="sans-serif">FARANAH</text>
-
-        <!-- Kankan region (Haute Guinée) -->
-        <path class="prefecture active" d="M 310,210 L 360,200 L 400,215 L 420,240 L 415,275 L 390,295 L 360,300 L 330,290 L 315,265 L 315,235 Z"/>
-        <text x="367" y="255" text-anchor="middle" fill="#00cc44" font-size="7" font-family="sans-serif">KANKAN</text>
-
-        <!-- N'Zérékoré region (Guinée Forestière) -->
-        <path class="prefecture active" d="M 285,310 L 330,300 L 380,310 L 400,340 L 400,380 L 375,400 L 345,410 L 315,400 L 295,375 L 285,345 Z"/>
-        <text x="342" y="362" text-anchor="middle" fill="#00cc44" font-size="7" font-family="sans-serif">N'ZÉRÉKORÉ</text>
-
-        <!-- Siguiri/Est -->
-        <path class="prefecture active" d="M 415,210 L 460,200 L 490,220 L 485,260 L 465,280 L 435,275 L 415,255 Z"/>
-        <text x="452" y="244" text-anchor="middle" fill="#00cc44" font-size="7" font-family="sans-serif">SIGUIRI</text>
-
-        <!-- Guéckédou/Macenta -->
-        <path class="prefecture active" d="M 240,370 L 290,360 L 315,380 L 315,415 L 295,430 L 265,430 L 245,415 L 240,395 Z"/>
-        <text x="278" y="400" text-anchor="middle" fill="#00cc44" font-size="6.5" font-family="sans-serif">GUÉCKÉDOU</text>
-
-        <!-- Lignes routes (animation) -->
-        <line x1="60" y1="235" x2="125" y2="222" stroke="#00cc44" stroke-width="1" stroke-dasharray="4,3" opacity="0.4">
-          <animate attributeName="stroke-dashoffset" values="0;-14" dur="1.5s" repeatCount="indefinite"/>
-        </line>
-        <line x1="125" y1="222" x2="197" y2="170" stroke="#00cc44" stroke-width="1" stroke-dasharray="4,3" opacity="0.3">
-          <animate attributeName="stroke-dashoffset" values="0;-14" dur="2s" repeatCount="indefinite"/>
-        </line>
-        <line x1="125" y1="222" x2="207" y2="250" stroke="#00cc44" stroke-width="1" stroke-dasharray="4,3" opacity="0.3">
-          <animate attributeName="stroke-dashoffset" values="0;-14" dur="1.8s" repeatCount="indefinite"/>
-        </line>
-        <line x1="207" y1="250" x2="282" y2="282" stroke="#00cc44" stroke-width="1" stroke-dasharray="4,3" opacity="0.3">
-          <animate attributeName="stroke-dashoffset" values="0;-14" dur="2.2s" repeatCount="indefinite"/>
-        </line>
-        <line x1="282" y1="282" x2="367" y2="255" stroke="#00cc44" stroke-width="1" stroke-dasharray="4,3" opacity="0.25">
-          <animate attributeName="stroke-dashoffset" values="0;-14" dur="2.5s" repeatCount="indefinite"/>
-        </line>
-        <line x1="342" y1="362" x2="367" y2="255" stroke="#00cc44" stroke-width="1" stroke-dasharray="4,3" opacity="0.25">
-          <animate attributeName="stroke-dashoffset" values="0;-14" dur="2s" repeatCount="indefinite"/>
-        </line>
-
-        <!-- Points clignotants sur chaque ville -->
-        <g filter="url(#glow)">
-          <!-- Conakry hub (plus grand, animé) -->
-          <circle cx="60" cy="220" r="6" fill="#00ff55">
-            <animate attributeName="r" values="5;9;5" dur="1.5s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="60" cy="220" r="14" fill="none" stroke="#00ff55" stroke-width="1.5" opacity="0.4">
-            <animate attributeName="r" values="10;18;10" dur="1.5s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.4;0;0.4" dur="1.5s" repeatCount="indefinite"/>
-          </circle>
-
-          <!-- Kindia -->
-          <circle cx="125" cy="218" r="4" fill="#00cc44">
-            <animate attributeName="opacity" values="1;0.4;1" dur="2s" begin="0.3s" repeatCount="indefinite"/>
-          </circle>
-          <!-- Boké -->
-          <circle cx="100" cy="110" r="4" fill="#00cc44">
-            <animate attributeName="opacity" values="1;0.4;1" dur="2.3s" begin="0.6s" repeatCount="indefinite"/>
-          </circle>
-          <!-- Labé -->
-          <circle cx="197" cy="166" r="4" fill="#00cc44">
-            <animate attributeName="opacity" values="1;0.4;1" dur="2.1s" begin="0.2s" repeatCount="indefinite"/>
-          </circle>
-          <!-- Mamou -->
-          <circle cx="207" cy="246" r="4" fill="#00cc44">
-            <animate attributeName="opacity" values="1;0.4;1" dur="1.9s" begin="0.8s" repeatCount="indefinite"/>
-          </circle>
-          <!-- Faranah -->
-          <circle cx="282" cy="278" r="4" fill="#00cc44">
-            <animate attributeName="opacity" values="1;0.4;1" dur="2.4s" begin="0.4s" repeatCount="indefinite"/>
-          </circle>
-          <!-- Kankan -->
-          <circle cx="367" cy="251" r="4" fill="#00cc44">
-            <animate attributeName="opacity" values="1;0.4;1" dur="2.2s" begin="1s" repeatCount="indefinite"/>
-          </circle>
-          <!-- N'Zérékoré -->
-          <circle cx="342" cy="358" r="4" fill="#00cc44">
-            <animate attributeName="opacity" values="1;0.4;1" dur="2.6s" begin="0.5s" repeatCount="indefinite"/>
-          </circle>
-          <!-- Siguiri -->
-          <circle cx="452" cy="240" r="4" fill="#00cc44">
-            <animate attributeName="opacity" values="1;0.4;1" dur="2s" begin="0.9s" repeatCount="indefinite"/>
-          </circle>
-          <!-- Guéckédou -->
-          <circle cx="278" cy="396" r="4" fill="#00cc44">
-            <animate attributeName="opacity" values="1;0.4;1" dur="2.3s" begin="0.7s" repeatCount="indefinite"/>
-          </circle>
-        </g>
-
-        <!-- Label "ACTIF PARTOUT" -->
-        <rect x="155" y="450" width="190" height="28" rx="4" fill="rgba(0,204,68,0.12)" stroke="rgba(0,204,68,0.3)" stroke-width="1"/>
-        <text x="250" y="469" text-anchor="middle" fill="#00cc44" font-size="10" font-weight="bold" font-family="sans-serif" letter-spacing="2">✓ ACTIF PARTOUT EN GUINÉE</text>
+<!-- CARTE PLEINE LARGEUR -->
+<div class="map-section" id="zones">
+  <div class="map-section-inner">
+    <div class="anim-l">
+      <div style="font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(0,204,68,.7);margin-bottom:14px;display:flex;align-items:center;gap:10px">
+        <span style="width:18px;height:1px;background:rgba(0,204,68,.4);display:block"></span>
+        Couverture Nationale · 🇬🇳
+      </div>
+      <h2 class="map-s-title">ON LIVRE<br><em>PARTOUT EN GUINÉE</em></h2>
+      <p class="map-s-sub">Un seul partenaire logistique pour toute la Guinée. Même tarif partout — 70 000 GNF par commande livrée avec succès.</p>
+      <div class="mzl"><div class="mzl-left"><div class="mzl-dot"></div><div class="mzl-name">🏙️ Conakry — Kaloum · Dixinn · Ratoma · Matam · Matoto</div></div><div class="mzl-delay">~45 min</div></div>
+      <div class="mzl"><div class="mzl-left"><div class="mzl-dot"></div><div class="mzl-name">🌿 Kindia · Coyah · Télimélé · Dubreka</div></div><div class="mzl-delay">24–48h</div></div>
+      <div class="mzl"><div class="mzl-left"><div class="mzl-dot"></div><div class="mzl-name">⛏️ Boké · Fria · Kamsar · Boffa · Gaoual</div></div><div class="mzl-delay">24–48h</div></div>
+      <div class="mzl"><div class="mzl-left"><div class="mzl-dot"></div><div class="mzl-name">🏔️ Labé · Mamou · Pita · Dalaba · Mali</div></div><div class="mzl-delay">24–72h</div></div>
+      <div class="mzl"><div class="mzl-left"><div class="mzl-dot"></div><div class="mzl-name">🌾 Kankan · Siguiri · Kouroussa · Mandiana</div></div><div class="mzl-delay">48–72h</div></div>
+      <div class="mzl"><div class="mzl-left"><div class="mzl-dot"></div><div class="mzl-name">🌳 N'Zérékoré · Guéckédou · Macenta · Faranah · Kissidougou</div></div><div class="mzl-delay">48–72h</div></div>
+      <div style="margin-top:20px">
+        <a href="https://wa.me/2246220000000" target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex">
+          Démarrer la couverture nationale →
+        </a>
+      </div>
+    </div>
+    <div class="anim-r" style="display:flex;align-items:center;justify-content:center">
+      <svg viewBox="0 0 500 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px">
+        <path d="M75,125 L55,105 L38,90 L28,112 L20,142 L26,172 L42,182 L52,202 L46,222 L52,248 L70,262 L88,255 L106,272 L128,292 L150,305 L170,322 L190,315 L210,332 L230,348 L250,342 L270,358 L290,368 L310,362 L330,378 L350,388 L370,382 L390,398 L410,392 L430,408 L450,402 L468,417 L476,408 L468,382 L460,355 L466,325 L448,305 L438,282 L420,260 L400,250 L380,240 L360,230 L340,220 L320,210 L300,200 L280,210 L260,200 L240,183 L220,173 L200,160 L180,150 L160,140 L140,130 L120,120 L100,130 Z"
+              fill="rgba(0,204,68,0.05)" stroke="rgba(0,204,68,0.25)" stroke-width="1.5"/>
+        <circle cx="60" cy="228" r="6" fill="#00cc44"><animate attributeName="r" values="5;10;5" dur="1.5s" repeatCount="indefinite"/></circle>
+        <circle cx="128" cy="218" r="4" fill="#00cc44"><animate attributeName="opacity" values="1;0.3;1" dur="2.2s" begin="0.3s" repeatCount="indefinite"/></circle>
+        <circle cx="93" cy="110" r="4" fill="#00cc44"><animate attributeName="opacity" values="1;0.3;1" dur="2.5s" begin="0.6s" repeatCount="indefinite"/></circle>
+        <circle cx="193" cy="166" r="4" fill="#00cc44"><animate attributeName="opacity" values="1;0.3;1" dur="2.1s" begin="0.2s" repeatCount="indefinite"/></circle>
+        <circle cx="198" cy="243" r="4" fill="#00cc44"><animate attributeName="opacity" values="1;0.3;1" dur="1.9s" begin="0.8s" repeatCount="indefinite"/></circle>
+        <circle cx="268" cy="276" r="4" fill="#00cc44"><animate attributeName="opacity" values="1;0.3;1" dur="2.4s" begin="0.4s" repeatCount="indefinite"/></circle>
+        <circle cx="352" cy="250" r="4" fill="#00cc44"><animate attributeName="opacity" values="1;0.3;1" dur="2.2s" begin="1s" repeatCount="indefinite"/></circle>
+        <circle cx="330" cy="356" r="4" fill="#00cc44"><animate attributeName="opacity" values="1;0.3;1" dur="2.6s" begin="0.5s" repeatCount="indefinite"/></circle>
+        <circle cx="438" cy="240" r="4" fill="#00cc44"><animate attributeName="opacity" values="1;0.3;1" dur="2s" begin="0.9s" repeatCount="indefinite"/></circle>
+        <circle cx="270" cy="390" r="4" fill="#00cc44"><animate attributeName="opacity" values="1;0.3;1" dur="2.3s" begin="0.7s" repeatCount="indefinite"/></circle>
       </svg>
     </div>
-
-    <!-- ZONES LIST -->
-    <div class="map-zones anim-r">
-      <div class="map-zone-card" data-zone="conakry">
-        <div class="map-zone-header">
-          <div class="map-zone-name">🏙️ Conakry — Hub Principal</div>
-          <div class="map-zone-badge"><span class="map-zone-dot"></span>ACTIF</div>
-        </div>
-        <div class="map-zone-sub">Kaloum · Dixinn · Ratoma · Matam · Matoto</div>
-        <div class="map-zone-delay">⚡ 45 minutes en moyenne</div>
-      </div>
-      <div class="map-zone-card" data-zone="kindia">
-        <div class="map-zone-header">
-          <div class="map-zone-name">🌿 Kindia · Coyah</div>
-          <div class="map-zone-badge"><span class="map-zone-dot"></span>ACTIF</div>
-        </div>
-        <div class="map-zone-sub">Région Kindia · Périphérie de Conakry</div>
-        <div class="map-zone-delay">📦 24 – 48h</div>
-      </div>
-      <div class="map-zone-card" data-zone="boke">
-        <div class="map-zone-header">
-          <div class="map-zone-name">⛏️ Boké · Fria · Kamsar</div>
-          <div class="map-zone-badge"><span class="map-zone-dot"></span>ACTIF</div>
-        </div>
-        <div class="map-zone-sub">Région Boké · Basse Guinée Nord</div>
-        <div class="map-zone-delay">📦 24 – 48h</div>
-      </div>
-      <div class="map-zone-card" data-zone="labe">
-        <div class="map-zone-header">
-          <div class="map-zone-name">🏔️ Labé · Mamou · Pita</div>
-          <div class="map-zone-badge"><span class="map-zone-dot"></span>ACTIF</div>
-        </div>
-        <div class="map-zone-sub">Fouta Djallon · Moyenne Guinée</div>
-        <div class="map-zone-delay">📦 24 – 72h</div>
-      </div>
-      <div class="map-zone-card" data-zone="kankan">
-        <div class="map-zone-header">
-          <div class="map-zone-name">🌾 Kankan · Siguiri · Kouroussa</div>
-          <div class="map-zone-badge"><span class="map-zone-dot"></span>ACTIF</div>
-        </div>
-        <div class="map-zone-sub">Haute Guinée · Est du pays</div>
-        <div class="map-zone-delay">📦 48 – 72h</div>
-      </div>
-      <div class="map-zone-card" data-zone="nzerekore">
-        <div class="map-zone-header">
-          <div class="map-zone-name">🌳 N'Zérékoré · Guéckédou · Macenta</div>
-          <div class="map-zone-badge"><span class="map-zone-dot"></span>ACTIF</div>
-        </div>
-        <div class="map-zone-sub">Guinée Forestière · Sud-Est</div>
-        <div class="map-zone-delay">📦 48 – 72h</div>
-      </div>
-      <div class="map-zone-card" data-zone="faranah">
-        <div class="map-zone-header">
-          <div class="map-zone-name">🗺️ Faranah · Kissidougou</div>
-          <div class="map-zone-badge"><span class="map-zone-dot"></span>ACTIF</div>
-        </div>
-        <div class="map-zone-sub">Région Faranah · Centre-Sud Guinée</div>
-        <div class="map-zone-delay">📦 48 – 72h</div>
-      </div>
-    </div>
-  </div>
-  <div class="map-footer anim">
-    <p class="map-footer-text">Un seul partenaire logistique pour toute la Guinée · Même tarif partout · 70 000 GNF</p>
-    <a href="https://wa.me/2246220000000?text=Bonjour%20Rapido%2C%20je%20veux%20livrer%20partout%20en%20Guin%C3%A9e%20%F0%9F%9A%80" target="_blank" rel="noopener" class="btn-map-cta">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-      Démarrer la couverture nationale →
-    </a>
   </div>
 </div>
 
-<!-- ════════════ TESTIMONIALS ════════════ -->
+<!-- TESTIMONIALS -->
 <div class="testi-wrap section-full section-sm" id="avis">
   <div class="wrap">
     <div class="eyebrow anim">E-commerçants guinéens · Témoignages</div>
@@ -761,86 +537,46 @@ footer{background:#fff;padding:60px 56px;border-top:3px solid var(--red);width:1
     <div class="testi-grid stagger">
       <article class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote" aria-hidden="true">"</div>
+        <div class="testi-quote">"</div>
         <p class="testi-text">Depuis que je travaille avec Rapido, mes retours ont chuté de 40%. Leurs agents confirment vraiment chaque commande avant livraison. C'est du sérieux.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">YB</div>
-          <div>
-            <div class="testi-name">Yassine B.</div>
-            <div class="testi-role">Vente en ligne Mode — Maroc & Guinée</div>
-          </div>
-        </div>
+        <div class="testi-author"><div class="testi-avatar">YB</div><div><div class="testi-name">Yassine B.</div><div class="testi-role">Vente en ligne Mode — Maroc & Guinée</div></div></div>
       </article>
       <article class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote" aria-hidden="true">"</div>
+        <div class="testi-quote">"</div>
         <p class="testi-text">J'avais peur de confier mon stock à une société de livraison. Avec Rapido, c'est transparent : je vois tout sur l'application en temps réel. Je recommande à 100%.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">KM</div>
-          <div>
-            <div class="testi-name">Karim M.</div>
-            <div class="testi-role">E-commerce Tech — Algérie & Guinée</div>
-          </div>
-        </div>
+        <div class="testi-author"><div class="testi-avatar">KM</div><div><div class="testi-name">Karim M.</div><div class="testi-role">E-commerce Tech — Algérie & Guinée</div></div></div>
       </article>
       <article class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote" aria-hidden="true">"</div>
+        <div class="testi-quote">"</div>
         <p class="testi-text">70 000 GNF tout inclus, c'est le meilleur rapport qualité-prix du marché guinéen. Mon taux de livraison a explosé grâce à la confirmation téléphonique.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">FK</div>
-          <div>
-            <div class="testi-name">Fatoumata K.</div>
-            <div class="testi-role">Cosmétiques & Beauté — Conakry</div>
-          </div>
-        </div>
+        <div class="testi-author"><div class="testi-avatar">FK</div><div><div class="testi-name">Fatoumata K.</div><div class="testi-role">Cosmétiques & Beauté — Conakry</div></div></div>
       </article>
     </div>
   </div>
 </div>
 
-<!-- ════════════ MEGA CTA ════════════ -->
+<!-- MEGA CTA -->
 <div class="cta-wrap" id="contact">
   <div style="max-width:1000px;margin:0 auto;position:relative;z-index:1">
-    <div class="cta-proof">
-      <div class="cta-proof-avs"><div class="cta-av">YB</div><div class="cta-av">KM</div><div class="cta-av">FK</div></div>
-      <span class="cta-proof-text">Rejoignez les premiers partenaires Rapido</span>
-    </div>
     <h2 class="cta-h2">LANCEZ VOTRE<br>COD AUJOURD'HUI</h2>
     <p class="cta-p">La première société de livraison Cash on Delivery en Guinée. Partout sur le territoire. Vous vendez, on livre.</p>
     <div class="cta-btns">
-      <a href="https://wa.me/2246220000000?text=Bonjour%20Rapido%2C%20je%20veux%20d%C3%A9marrer%20%F0%9F%9A%80" target="_blank" rel="noopener" class="btn-wa-big" data-cta="mega_wa">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+      <a href="https://wa.me/2246220000000?text=Bonjour%20Rapido%2C%20je%20veux%20d%C3%A9marrer%20%F0%9F%9A%80" target="_blank" rel="noopener" class="btn-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
         Démarrer sur WhatsApp
       </a>
-      <a href="tarifs.html" class="btn-cta-sec">Voir les tarifs →</a>
+      <a href="tarifs.html" class="btn-ghost">Voir les tarifs →</a>
     </div>
     <div class="cta-stats">
-      <div class="cs"><div class="cs-n">95%</div><div class="cs-l">Confirmation</div></div>
+      <div><div class="cs-n">95%</div><div class="cs-l">Confirmation</div></div>
       <div class="cs-sep"></div>
-      <div class="cs"><div class="cs-n">45<span style="font-size:.5em;margin-left:4px;font-weight:400">min</span></div><div class="cs-l">Délai Conakry</div></div>
+      <div><div class="cs-n">45<span style="font-size:.5em;margin-left:4px">min</span></div><div class="cs-l">Délai Conakry</div></div>
       <div class="cs-sep"></div>
-      <div class="cs"><div class="cs-n">24H</div><div class="cs-l">Onboarding</div></div>
+      <div><div class="cs-n">24H</div><div class="cs-l">Onboarding</div></div>
       <div class="cs-sep"></div>
-      <div class="cs"><div class="cs-n">0</div><div class="cs-l">Frais fixes</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- ════════════ ESPACE PARTENAIRE ════════════ -->
-<div class="partner-wrap">
-  <div class="partner-inner">
-    <h2 class="partner-h2">DÉJÀ CLIENT RAPIDO ?</h2>
-    <p class="partner-p">Accédez à votre espace dédié pour suivre vos livraisons en temps réel, gérer vos commandes COD et consulter vos statistiques de performance.</p>
-    <div class="partner-btns">
-      <a href="rapido-pro.html" class="btn-partner-primary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
-        Accéder à mon Espace Client
-      </a>
-      <a href="https://wa.me/2246220000000?text=Bonjour%20Rapido" target="_blank" rel="noopener" class="btn-partner-wa">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-        Support WhatsApp
-      </a>
+      <div><div class="cs-n">0</div><div class="cs-l">Frais fixes</div></div>
     </div>
   </div>
 </div>
@@ -851,7 +587,7 @@ footer{background:#fff;padding:60px 56px;border-top:3px solid var(--red);width:1
   <div class="f-inner">
     <div>
       <div class="f-logo">RAPIDO<span>.</span></div>
-      <p class="f-desc">La première société de livraison Cash on Delivery en Guinée. Logistique COD clés en main partout en Guinée.</p>
+      <p class="f-desc">La première société de livraison Cash on Delivery partout en Guinée. Logistique COD clés en main.</p>
       <div class="f-tag">LIVRÉ VITE · LIVRÉ BIEN</div>
     </div>
     <div class="f-col">
@@ -860,8 +596,8 @@ footer{background:#fff;padding:60px 56px;border-top:3px solid var(--red);width:1
         <li><a href="index.html">Accueil</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="tarifs.html">Tarifs</a></li>
-        <li><a href="index.html#zones">Couverture</a></li>
-        <li><a href="index.html#avis">Témoignages</a></li>
+        <li><a href="#zones">Couverture</a></li>
+        <li><a href="#avis">Témoignages</a></li>
       </ul>
     </div>
     <div class="f-col">
@@ -880,42 +616,32 @@ footer{background:#fff;padding:60px 56px;border-top:3px solid var(--red);width:1
         <li><a href="https://wa.me/2246220000000" target="_blank">WhatsApp Business</a></li>
         <li><a href="mailto:contact@rapido.gn">contact@rapido.gn</a></li>
         <li><span style="color:var(--muted-2);font-size:13px">Conakry, Guinée 🇬🇳</span></li>
-        <li><a href="index.html#contact" style="color:var(--red);font-weight:700">Devenir client →</a></li>
+        <li><a href="#contact" style="color:var(--red);font-weight:700">Devenir client →</a></li>
       </ul>
     </div>
   </div>
   <div class="f-bottom">
-    <p>© 2026 Rapido Guinée — Livraison partout en Guinée. Tous droits réservés.</p>
-    <div class="f-legal">
-      <a href="/mentions-legales.html">Mentions légales</a>
-      <a href="/cgu.html">CGU</a>
-      <a href="/politique-confidentialite.html">Confidentialité</a>
-    </div>
-    <p style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:3px;color:rgba(167,0,0,.35)">LIVRÉ VITE · LIVRÉ BIEN</p>
+    <p>© 2026 Rapido Guinée — Livraison partout en Guinée.</p>
+    <div class="f-legal"><a href="/mentions-legales.html">Mentions légales</a><a href="/cgu.html">CGU</a></div>
+    <p style="font-family:'Bebas Neue';font-size:13px;letter-spacing:3px;color:rgba(167,0,0,.35)">LIVRÉ VITE · LIVRÉ BIEN</p>
   </div>
 </footer>
 
-<!-- AI CHAT WIDGET -->
-<button id="aiBubble" onclick="toggleAI()" aria-label="Ouvrir le chat Rapido" aria-expanded="false">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-  <div id="aiNotif" aria-hidden="true"></div>
+<!-- AI CHAT -->
+<button id="aiBubble" onclick="toggleAI()">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <div id="aiNotif"></div>
 </button>
-
-<div id="aiPanel" role="dialog" aria-label="Chat Rapido" aria-modal="true">
+<div id="aiPanel">
   <div class="ai-header">
-    <div class="ai-header-left">
-      <div class="ai-h-dot" aria-hidden="true"></div>
-      <div>
-        <div class="ai-h-name">Assistant Rapido</div>
-        <div class="ai-h-sub">Répond en &lt; 1h sur WhatsApp</div>
-      </div>
+    <div style="display:flex;align-items:center">
+      <div class="ai-h-dot"></div>
+      <div><div class="ai-h-name">Assistant Rapido</div><div class="ai-h-sub">Répond en &lt; 1h sur WhatsApp</div></div>
     </div>
-    <button class="ai-close" onclick="closeAI()" aria-label="Fermer">✕</button>
+    <button class="ai-close" onclick="closeAI()">✕</button>
   </div>
-  <div id="aiMsgs" role="log" aria-live="polite">
-    <div class="ai-msg bot">
-      <div class="ai-bubble">👋 Bonjour ! Je suis l'assistant Rapido. Posez-moi une question sur nos tarifs, zones de livraison ou comment démarrer en Guinée.</div>
-    </div>
+  <div id="aiMsgs">
+    <div class="ai-msg bot"><div class="ai-bubble">👋 Bonjour ! Comment puis-je vous aider ?</div></div>
   </div>
   <div id="aiSuggs">
     <button class="ai-sugg" onclick="askAI(this)">💰 Tarif</button>
@@ -924,111 +650,49 @@ footer{background:#fff;padding:60px 56px;border-top:3px solid var(--red);width:1
     <button class="ai-sugg" onclick="askAI(this)">🚀 Démarrer</button>
   </div>
   <div class="ai-input-row">
-    <input type="text" id="aiIn" placeholder="Votre question..." aria-label="Question pour Rapido" onkeydown="if(event.key==='Enter')sendAI()">
+    <input type="text" id="aiIn" placeholder="Votre question..." onkeydown="if(event.key==='Enter')sendAI()">
     <button id="aiSend" onclick="sendAI()">Envoyer</button>
   </div>
 </div>
 
 <script>
-// Progress bar
 window.addEventListener('scroll',()=>{
   const p=document.getElementById('prog'),t=document.documentElement.scrollHeight-window.innerHeight;
   if(p)p.style.width=(t>0?(window.scrollY/t*100):0)+'%';
   document.getElementById('navbar').classList.toggle('stuck',window.scrollY>60);
 },{passive:true});
-
-// Mobile menu
-function toggleMob(){
-  const m=document.getElementById('mob');
-  const open=m.classList.toggle('open');
-  document.body.style.overflow=open?'hidden':'';
-  // Animate links
-  m.querySelectorAll('a').forEach((a,i)=>{
-    a.style.transitionDelay=open?(i*.06+.1)+'s':'0s';
-  });
-}
+function toggleMob(){const m=document.getElementById('mob');m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':'';}
 function closeMob(){document.getElementById('mob').classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMob();closeAI();}});
-
-// Scroll animations
 requestAnimationFrame(()=>requestAnimationFrame(()=>{
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-  },{threshold:.05,rootMargin:'0px 0px -20px 0px'});
+  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.05,rootMargin:'0px 0px -20px 0px'});
   document.querySelectorAll('.anim,.anim-l,.anim-r,.stagger').forEach(el=>{
-    const r=el.getBoundingClientRect();
-    if(r.top<window.innerHeight)el.classList.add('in');
+    if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('in');
     else io.observe(el);
   });
   setTimeout(()=>document.querySelectorAll('.anim:not(.in),.anim-l:not(.in),.anim-r:not(.in),.stagger:not(.in)').forEach(el=>el.classList.add('in')),800);
 }));
-
-// Map zone hover highlight
-document.querySelectorAll('.map-zone-card').forEach(card=>{
-  card.addEventListener('mouseenter',()=>{
-    document.querySelectorAll('.map-zone-card').forEach(c=>c.classList.remove('highlight'));
-    card.classList.add('highlight');
-  });
-});
-
-// WhatsApp click tracking
-document.addEventListener('click',e=>{
-  const a=e.target.closest('a[href*="wa.me"]');
-  if(!a)return;
-  if(window.gtag)gtag('event','whatsapp_click',{location:a.dataset.cta||'unknown'});
-},{passive:true});
-
-// AI Chat
 const AI_R={
-  tarif:'Le tarif Rapido est <strong>70 000 GNF par commande livrée</strong>, tout inclus :<br>✅ Confirmation téléphonique<br>✅ Stockage & préparation<br>✅ Livraison partout en Guinée<br>✅ Collecte cash<br>✅ Retours 0 GNF<br><br>Vous ne payez que sur les commandes livrées avec succès.',
-  start:'Pour démarrer :<br><br>1️⃣ Contactez-nous sur WhatsApp<br>2️⃣ On connecte votre site (Shopify, WooCommerce, YouCan)<br>3️⃣ Les commandes arrivent dans notre CRM<br>4️⃣ Première livraison dès le lendemain<br><br>👉 <a href="https://wa.me/2246220000000" target="_blank" style="color:#A70000;font-weight:700">Démarrer →</a>',
-  zones:'Rapido livre <strong>partout en Guinée</strong> 🇬🇳<br><br>📍 Conakry (45 min) · Kindia · Boké · Mamou · Labé · Faranah · Kankan · N\'Zérékoré · Siguiri · Guéckédou<br><br><strong>Toutes les préfectures de Guinée</strong> — même tarif de 70 000 GNF.',
-  delai:'⚡ Délais de livraison Rapido :<br>• <strong>Conakry</strong> : ~45 minutes<br>• <strong>Kindia, Coyah</strong> : 24–48h<br>• <strong>Boké, Mamou, Labé</strong> : 24–72h<br>• <strong>Kankan, N\'Zérékoré, Faranah</strong> : 48–72h',
-  retour:'Si la commande n\'est pas livrée :<br>✅ <strong>0 GNF facturé</strong><br>✅ Stock remis dans votre dépôt Rapido<br>✅ Vous ne perdez rien<br><br>Vous payez uniquement les livraisons réussies.',
-  def:'Bonne question ! Pour une réponse précise, mieux vaut parler à l\'équipe directement.<br>👉 <a href="https://wa.me/2246220000000" target="_blank" style="color:#A70000;font-weight:700">WhatsApp Rapido — réponse < 1h →</a>'
+  tarif:'Le tarif Rapido est <strong>70 000 GNF par commande livrée</strong>, tout inclus :<br>✅ Confirmation téléphonique<br>✅ Stockage & préparation<br>✅ Livraison partout en Guinée<br>✅ Collecte cash<br>✅ Retours 0 GNF',
+  start:'Pour démarrer :<br><br>1️⃣ WhatsApp<br>2️⃣ On connecte votre boutique<br>3️⃣ Première livraison dès le lendemain<br><br>👉 <a href="https://wa.me/2246220000000" target="_blank" style="color:#A70000;font-weight:700">Démarrer →</a>',
+  zones:'Rapido livre <strong>partout en Guinée</strong> 🇬🇳<br><br>📍 Conakry (45 min) · Kindia · Boké · Mamou · Labé · Faranah · Kankan · N\'Zérékoré<br><br><strong>Même tarif 70 000 GNF partout.</strong>',
+  delai:'⚡ Délais :<br>• <strong>Conakry</strong> : ~45 min<br>• <strong>Kindia, Coyah</strong> : 24–48h<br>• <strong>Boké, Mamou, Labé</strong> : 24–72h<br>• <strong>Kankan, N\'Zérékoré</strong> : 48–72h',
+  def:'Bonne question !<br>👉 <a href="https://wa.me/2246220000000" target="_blank" style="color:#A70000;font-weight:700">WhatsApp Rapido — réponse &lt; 1h →</a>'
 };
 function getR(q){
   const l=q.toLowerCase();
-  if(/tarif|prix|gnf|coût|cout|cher|combien|70/.test(l))return AI_R.tarif;
-  if(/démarrer|commencer|start|inscri|onboard/.test(l))return AI_R.start;
-  if(/ville|zone|guinée|kindia|boké|mamou|labé|kankan|nzérékoré|faranah|partout|livr.*où|couverture/.test(l))return AI_R.zones;
+  if(/tarif|prix|gnf|coût|combien|70/.test(l))return AI_R.tarif;
+  if(/démarrer|commencer|start|inscri/.test(l))return AI_R.start;
+  if(/ville|zone|guinée|kindia|boké|mamou|labé|kankan|partout/.test(l))return AI_R.zones;
   if(/délai|delai|temps|rapide|45|quand/.test(l))return AI_R.delai;
-  if(/retour|refus|annul|absent/.test(l))return AI_R.retour;
   return AI_R.def;
 }
-function appendMsg(t,user){
-  const d=document.createElement('div');
-  d.className='ai-msg '+(user?'user':'bot');
-  d.innerHTML='<div class="ai-bubble">'+t+'</div>';
-  const m=document.getElementById('aiMsgs');
-  m.appendChild(d);
-  m.scrollTop=m.scrollHeight;
-}
-function sendAI(){
-  const inp=document.getElementById('aiIn'),q=inp.value.trim();
-  if(!q)return;
-  inp.value='';
-  appendMsg(q,true);
-  document.getElementById('aiSuggs').style.display='none';
-  const m=document.getElementById('aiMsgs'),ty=document.createElement('div');
-  ty.className='ai-msg bot';ty.id='aitying';
-  ty.innerHTML='<div class="ai-bubble"><div class="ai-typing"><span></span><span></span><span></span></div></div>';
-  m.appendChild(ty);m.scrollTop=m.scrollHeight;
-  setTimeout(()=>{
-    const t=document.getElementById('aitying');
-    if(t)t.remove();
-    appendMsg(getR(q),false);
-  },800+Math.random()*400);
-}
+function appendMsg(t,user){const d=document.createElement('div');d.className='ai-msg '+(user?'user':'bot');d.innerHTML='<div class="ai-bubble">'+t+'</div>';const m=document.getElementById('aiMsgs');m.appendChild(d);m.scrollTop=m.scrollHeight;}
+function sendAI(){const inp=document.getElementById('aiIn'),q=inp.value.trim();if(!q)return;inp.value='';appendMsg(q,true);document.getElementById('aiSuggs').style.display='none';const m=document.getElementById('aiMsgs'),ty=document.createElement('div');ty.className='ai-msg bot';ty.id='aitying';ty.innerHTML='<div class="ai-bubble"><div class="ai-typing"><span></span><span></span><span></span></div></div>';m.appendChild(ty);m.scrollTop=m.scrollHeight;setTimeout(()=>{const t=document.getElementById('aitying');if(t)t.remove();appendMsg(getR(q),false);},800+Math.random()*400);}
 function askAI(btn){document.getElementById('aiIn').value=btn.textContent;sendAI();}
 let aiOpen=false;
-function toggleAI(){
-  aiOpen=!aiOpen;
-  document.getElementById('aiPanel').classList.toggle('open',aiOpen);
-  document.getElementById('aiBubble').setAttribute('aria-expanded',aiOpen);
-  if(aiOpen)document.getElementById('aiNotif').style.display='none';
-}
-function closeAI(){aiOpen=false;document.getElementById('aiPanel').classList.remove('open');document.getElementById('aiBubble').setAttribute('aria-expanded','false');}
+function toggleAI(){aiOpen=!aiOpen;document.getElementById('aiPanel').classList.toggle('open',aiOpen);if(aiOpen)document.getElementById('aiNotif').style.display='none';}
+function closeAI(){aiOpen=false;document.getElementById('aiPanel').classList.remove('open');}
 setTimeout(()=>{if(!aiOpen){const n=document.getElementById('aiNotif');if(n)n.style.display='block';}},3000);
 </script>
 </body>
