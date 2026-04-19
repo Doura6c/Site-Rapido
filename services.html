@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Services Rapido — COD, Livraison, Stockage, Sourcing | Guinée</title>
+<meta name="description" content="Découvrez tous les services Rapido : confirmation téléphonique COD, livraison partout en Guinée, gestion de stock, sourcing Chine & Dubaï, dashboard temps réel. 70 000 GNF tout inclus.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#A70000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:#fff;color:#1a1a1a;font-family:'Barlow',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+:root{
+  --red:#A70000;--red-light:#fff0f0;--red-mid:rgba(167,0,0,.08);
+  --ink:#1a1a1a;--ink-2:#333;--muted:#5e5e5e;--muted-2:#8a8a8a;
+  --line:rgba(0,0,0,.1);--ease:cubic-bezier(.16,1,.3,1)
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ── PROGRESS ── */
+#prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#A70000,#ff4444);z-index:9999;width:0%;transition:width .08s linear;box-shadow:0 0 8px rgba(167,0,0,.4)}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:space-between;padding:0 56px;border-bottom:1px solid transparent;transition:all .3s}
+nav.stuck{border-color:var(--line);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.n-logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:5px;color:var(--ink);text-decoration:none}
+.n-logo span{color:var(--red)}
+.n-links{display:flex;align-items:center;gap:2px;list-style:none}
+.n-links a{color:var(--muted);text-decoration:none;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:8px 14px;transition:color .2s;position:relative}
+.n-links a::after{content:'';position:absolute;bottom:4px;left:14px;right:14px;height:1.5px;background:var(--red);transform:scaleX(0);transition:transform .25s var(--ease)}
+.n-links a:hover,.n-links a.active{color:var(--ink)}
+.n-links a.active::after{transform:scaleX(1)}
+.n-cta{background:var(--red)!important;color:#fff!important;padding:9px 22px!important;letter-spacing:2px!important;transition:background .2s!important}
+.n-cta:hover{background:#850000!important}
+.n-cta::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);transition:all .3s}
+.mob{position:fixed;inset:0;background:#fff;z-index:510;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s,visibility .3s}
+.mob.open{opacity:1;visibility:visible;pointer-events:auto}
+.mob a{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:4px;color:var(--ink);text-decoration:none;transition:all .25s;line-height:1.1}
+.mob a:hover{color:var(--red)}
+.mob-close{position:absolute;top:20px;right:24px;background:none;border:none;font-size:28px;cursor:pointer;color:var(--ink)}
+
+/* ── COMMON ── */
+.wrap{max-width:1280px;margin:0 auto;padding:0 56px}
+.section-full{width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);box-sizing:border-box}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.eyebrow::before{content:'';width:20px;height:1.5px;background:var(--red)}
+.big-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,6vw,88px);line-height:.9;letter-spacing:1px;color:var(--ink);margin-bottom:24px}
+.big-title em{display:block;color:var(--red);font-style:normal}
+.lead{font-size:17px;color:var(--muted);line-height:1.8;font-weight:300;max-width:540px}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;padding:15px 30px;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;transition:all .25s var(--ease)}
+.btn-primary:hover{background:#850000;transform:translateY(-2px);box-shadow:0 12px 32px rgba(167,0,0,.25)}
+.btn-sec{display:inline-flex;align-items:center;gap:8px;color:var(--ink);padding:15px 24px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--line);transition:all .25s}
+.btn-sec:hover{border-color:var(--ink)}
+.anim,.anim-l,.anim-r,.stagger{opacity:0;transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.anim{transform:translateY(24px)}
+.anim-l{transform:translateX(-24px)}
+.anim-r{transform:translateX(24px)}
+.anim.in,.anim-l.in,.anim-r.in,.stagger.in{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.stagger.in>*{opacity:1;transform:none}
+.stagger.in>*:nth-child(1){transition-delay:.05s}.stagger.in>*:nth-child(2){transition-delay:.1s}
+.stagger.in>*:nth-child(3){transition-delay:.15s}.stagger.in>*:nth-child(4){transition-delay:.2s}
+.stagger.in>*:nth-child(5){transition-delay:.25s}.stagger.in>*:nth-child(6){transition-delay:.3s}
+
+/* ═══════════════════════════
+   PAGE HERO (services)
+═══════════════════════════ */
+.page-hero{padding:140px 0 80px;background:#fff;border-bottom:1px solid var(--line)}
+.page-hero-inner{max-width:1280px;margin:0 auto;padding:0 56px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end}
+.page-hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red-mid);padding:6px 14px;margin-bottom:20px}
+.page-hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(167,0,0,.4)}50%{box-shadow:0 0 0 6px rgba(167,0,0,0)}}
+.page-hero-badge-text{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--red)}
+.page-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,10vw,140px);line-height:.85;letter-spacing:-1px;color:var(--ink)}
+.page-h1 em{display:block;color:var(--red);font-style:normal}
+.page-hero-right{padding-bottom:8px}
+.page-hero-desc{font-size:18px;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:32px}
+.page-hero-desc strong{color:var(--ink);font-weight:600}
+.page-hero-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.pill{background:#f4f4f1;color:var(--ink-2);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:7px 14px;border-radius:2px;border-left:2px solid var(--red)}
+.page-hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+
+/* ═══════════════════════════
+   SERVICE SECTIONS
+═══════════════════════════ */
+.svc-section{padding:100px 0;border-top:1px solid var(--line)}
+.svc-section:nth-child(even){background:#f8f7f4}
+.svc-section:nth-child(odd){background:#fff}
+
+.svc-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.svc-layout.rev{direction:rtl}
+.svc-layout.rev>*{direction:ltr}
+
+.svc-number{font-family:'Bebas Neue',sans-serif;font-size:120px;color:var(--red);opacity:.08;line-height:1;margin-bottom:-20px;display:block}
+.svc-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.svc-eyebrow::before{content:'';width:16px;height:1.5px;background:var(--red)}
+.svc-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5vw,72px);line-height:.9;color:var(--ink);margin-bottom:20px;letter-spacing:1px}
+.svc-desc{font-size:16px;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:32px}
+.svc-list{display:flex;flex-direction:column;gap:12px;margin-bottom:36px}
+.svc-item{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:#fff;border-left:3px solid var(--red);transition:all .25s}
+.svc-item:hover{transform:translateX(4px);box-shadow:4px 0 20px rgba(167,0,0,.06)}
+.svc-item-ico{width:36px;height:36px;background:var(--red-mid);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.svc-item-body{flex:1}
+.svc-item-title{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink);margin-bottom:4px}
+.svc-item-desc{font-size:13px;color:var(--muted);line-height:1.6;font-weight:300}
+.svc-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(0,160,60,.08);color:#006630;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:2px;margin-top:8px}
+.svc-tag-red{background:var(--red-mid);color:var(--red)}
+
+/* Highlight card (visual side) */
+.svc-visual{position:relative}
+.svc-big-card{background:var(--red);padding:48px;position:relative;overflow:hidden}
+.svc-big-card::before{content:'';position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(0,0,0,.08)}
+.svc-big-card::after{content:attr(data-icon);position:absolute;top:-10px;right:8px;font-size:140px;opacity:.08;line-height:1;pointer-events:none}
+.svc-card-label{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px}
+.svc-card-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,8vw,100px);color:#fff;line-height:.9;position:relative;z-index:1}
+.svc-card-unit{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase;margin-top:8px;margin-bottom:28px;position:relative;z-index:1}
+.svc-card-items{display:flex;flex-direction:column;gap:10px;position:relative;z-index:1}
+.svc-ci{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.75)}
+.svc-ci svg{flex-shrink:0;width:15px;height:15px;stroke:rgba(255,255,255,.5);fill:none;stroke-width:2;stroke-linecap:round}
+.svc-card-note{margin-top:24px;padding:14px 16px;background:rgba(0,0,0,.15);font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;position:relative;z-index:1}
+.svc-card-note strong{color:#fff}
+
+/* Stats grid in svc visual */
+.svc-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.svc-stat-card{background:#f8f7f4;padding:28px 24px;border-top:3px solid transparent;transition:all .3s}
+.svc-stat-card:hover{border-top-color:var(--red);background:#fff;transform:translateY(-3px)}
+.svc-stat-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--red);line-height:1}
+.svc-stat-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.svc-stat-desc{font-size:12px;color:var(--muted-2);margin-top:4px;font-weight:300}
+
+/* Sourcing steps */
+.sourcing-steps{display:flex;flex-direction:column;gap:1px}
+.s-step{display:flex;align-items:flex-start;gap:20px;padding:24px;background:#fff;border-left:3px solid transparent;transition:all .25s}
+.s-step:hover{border-left-color:var(--red);transform:translateX(4px);box-shadow:4px 0 24px rgba(167,0,0,.06)}
+.s-step-n{font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--red);opacity:.2;line-height:1;flex-shrink:0;width:50px;transition:opacity .25s}
+.s-step:hover .s-step-n{opacity:.6}
+.s-step-title{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ink);margin-bottom:6px}
+.s-step-desc{font-size:13px;color:var(--muted);line-height:1.6;font-weight:300}
+
+/* Country cards */
+.country-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px}
+.country-card{background:#fff;padding:24px;border:1px solid var(--line);border-left:4px solid var(--red);transition:all .25s}
+.country-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.08)}
+.country-flag{font-size:28px;margin-bottom:10px;display:block}
+.country-name{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ink);margin-bottom:4px}
+.country-sub{font-size:12px;color:var(--muted);line-height:1.5;font-weight:300}
+.country-delay{font-size:11px;color:var(--red);font-weight:700;margin-top:8px;letter-spacing:.5px}
+
+/* CRM mock cards */
+.crm-preview{background:#1a1a2e;border-radius:8px;padding:24px;position:relative;overflow:hidden}
+.crm-preview::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(167,0,0,.2) 0%,transparent 60%)}
+.crm-top-bar{display:flex;align-items:center;gap:8px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.crm-dot{width:8px;height:8px;border-radius:50%}
+.crm-dot.r{background:#ff5f56}.crm-dot.y{background:#ffbd2e}.crm-dot.g{background:#27c93f}
+.crm-url{flex:1;background:rgba(255,255,255,.06);padding:4px 12px;border-radius:4px;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.3px}
+.crm-kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:16px}
+.crm-kpi{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);padding:14px;border-radius:6px}
+.crm-kpi-val{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;line-height:1}
+.crm-kpi.green .crm-kpi-val{color:#4ade80}
+.crm-kpi.amber .crm-kpi-val{color:#fbbf24}
+.crm-kpi-lbl{font-size:9px;color:rgba(255,255,255,.4);letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+.crm-bar-wrap{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);padding:14px;border-radius:6px}
+.crm-bar-label{font-size:9px;color:rgba(255,255,255,.4);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.crm-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.crm-bar-name{font-size:10px;color:rgba(255,255,255,.6);width:60px;flex-shrink:0}
+.crm-bar-track{flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.crm-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#A70000,#ff4444)}
+.crm-bar-val{font-size:10px;color:rgba(255,255,255,.5);width:30px;text-align:right}
+
+/* International section */
+.intl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:32px 0}
+.intl-card{background:#f8f7f4;padding:24px;border-left:3px solid var(--red);transition:all .25s}
+.intl-card:hover{background:#fff;transform:translateX(4px)}
+.intl-flag{font-size:24px;margin-bottom:10px;display:block}
+.intl-name{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--ink);margin-bottom:6px}
+.intl-desc{font-size:13px;color:var(--muted);line-height:1.6;font-weight:300}
+
+/* ═══════════════════════════
+   FOOTER
+═══════════════════════════ */
+.mini-footer{background:var(--red);padding:60px 56px;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);text-align:center}
+.mini-footer-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,72px);color:#fff;margin-bottom:16px;letter-spacing:1px}
+.mini-footer-p{font-size:16px;color:rgba(255,255,255,.7);margin-bottom:32px;font-weight:300}
+.mini-footer-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+footer{background:#fff;padding:48px 56px;border-top:3px solid var(--red);width:100vw;max-width:100vw;margin-left:calc(50% - 50vw)}
+.f-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;max-width:1280px;margin:0 auto}
+.f-logo{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:4px;color:var(--ink);margin-bottom:10px}
+.f-logo span{color:var(--red)}
+.f-desc{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;max-width:260px;margin-bottom:8px}
+.f-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(167,0,0,.4)}
+.f-col h5{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--ink);margin-bottom:16px;font-weight:700;font-family:'Barlow Condensed',sans-serif}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.f-col ul a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s}
+.f-col ul a:hover{color:var(--red)}
+.f-bottom{max-width:1280px;margin:28px auto 0;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.f-bottom p{font-size:11px;color:var(--muted-2)}
+.f-legal{display:flex;gap:18px}
+.f-legal a{font-size:11px;color:var(--muted-2);text-decoration:none}
+.f-legal a:hover{color:var(--red)}
+
+@media(max-width:900px){
+  nav{padding:0 24px}
+  .n-links{display:none}
+  .hamburger{display:flex}
+  .page-hero-inner{grid-template-columns:1fr;gap:32px}
+  .svc-layout,.svc-layout.rev{grid-template-columns:1fr;direction:ltr}
+  .country-cards,.crm-kpi-grid,.intl-grid{grid-template-columns:1fr}
+  .svc-stats-grid{grid-template-columns:1fr 1fr}
+  .wrap{padding:0 24px}
+  .page-hero-inner{padding:0 24px}
+  .mini-footer{padding:48px 24px}
+  footer{padding:40px 24px}
+  .f-inner{grid-template-columns:1fr 1fr;gap:28px}
+}
+@media(max-width:480px){
+  .f-inner{grid-template-columns:1fr}
+  .svc-stats-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="prog" role="progressbar" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="n-logo">RAPIDO<span>.</span></a>
+  <ul class="n-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="tarifs.html">Tarifs</a></li>
+    <li><a href="index.html#zones">Couverture</a></li>
+    <li><a href="index.html#avis">Témoignages</a></li>
+    <li><a href="https://wa.me/2246220000000?text=Bonjour%20Rapido%20%F0%9F%9A%80" target="_blank" rel="noopener" class="n-cta">Démarrer →</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMob()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="index.html" onclick="closeMob()">Accueil</a>
+  <a href="services.html" onclick="closeMob()">Services</a>
+  <a href="tarifs.html" onclick="closeMob()">Tarifs</a>
+  <a href="index.html#zones" onclick="closeMob()">Couverture</a>
+  <a href="https://wa.me/2246220000000" target="_blank" onclick="closeMob()" style="color:#25D366">WhatsApp →</a>
+</div>
+
+<main>
+
+<!-- ════════ PAGE HERO ════════ -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="anim-l">
+      <div class="page-hero-badge"><span class="page-hero-badge-dot"></span><span class="page-hero-badge-text">Services Rapido Guinée</span></div>
+      <h1 class="page-h1">NOS<br>SERVICES<br><em>COD</em></h1>
+    </div>
+    <div class="anim-r">
+      <p class="page-hero-desc">Tout ce dont vous avez besoin pour vendre en <strong>Cash on Delivery partout en Guinée</strong>. Un seul partenaire, un seul tarif, zéro surprise.</p>
+      <div class="page-hero-pills">
+        <span class="pill">Confirmation COD</span>
+        <span class="pill">Livraison nationale</span>
+        <span class="pill">Stockage</span>
+        <span class="pill">Collecte cash</span>
+        <span class="pill">Sourcing</span>
+        <span class="pill">Dashboard</span>
+      </div>
+      <div class="page-hero-btns">
+        <a href="tarifs.html" class="btn-primary">Voir les tarifs →</a>
+        <a href="https://wa.me/2246220000000?text=Bonjour%20Rapido%2C%20je%20veux%20en%20savoir%20plus%20sur%20vos%20services" target="_blank" rel="noopener" class="btn-sec">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          Parler à l'équipe
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ SERVICE 01 — CONFIRMATION COD ════════ -->
+<div class="svc-section section-full" id="confirmation">
+  <div class="wrap">
+    <div class="svc-layout">
+      <div class="anim-l">
+        <span class="svc-number">01</span>
+        <div class="svc-eyebrow">Avant chaque expédition</div>
+        <h2 class="svc-title">CONFIRMATION<br>TÉLÉPHONIQUE<br>COD</h2>
+        <p class="svc-desc">Notre équipe d'agents COD appelle chaque client avant l'expédition. Adresse vérifiée, client disponible, intention confirmée. Fini les faux COD et les retours inutiles.</p>
+        <div class="svc-list">
+          <div class="svc-item">
+            <div class="svc-item-ico">📞</div>
+            <div class="svc-item-body">
+              <div class="svc-item-title">Appel client systématique</div>
+              <div class="svc-item-desc">Chaque commande est appelée avant préparation. Aucune commande ne part sans confirmation.</div>
+            </div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-item-ico">📍</div>
+            <div class="svc-item-body">
+              <div class="svc-item-title">Vérification d'adresse</div>
+              <div class="svc-item-desc">L'agent vérifie et corrige l'adresse de livraison pour éviter les retours liés à une mauvaise localisation.</div>
+            </div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-item-ico">🚫</div>
+            <div class="svc-item-body">
+              <div class="svc-item-title">Élimination des fausses commandes</div>
+              <div class="svc-item-desc">Les commandes fantômes sont identifiées et annulées avant expédition — 0 GNF facturé.</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="https://wa.me/2246220000000?text=Confirmation%20COD" target="_blank" rel="noopener" class="btn-primary">Démarrer →</a>
+          <a href="tarifs.html" class="btn-sec">Voir le tarif</a>
+        </div>
+      </div>
+      <div class="anim-r">
+        <div class="svc-big-card" data-icon="📞">
+          <div class="svc-card-label">Taux de confirmation Rapido</div>
+          <div class="svc-card-num">95%</div>
+          <div class="svc-card-unit">Confirmation rate</div>
+          <div class="svc-card-items">
+            <div class="svc-ci">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Agents COD dédiés, formés Guinée
+            </div>
+            <div class="svc-ci">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Appel dans les 2h après réception commande
+            </div>
+            <div class="svc-ci">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Rapport de confirmation en temps réel
+            </div>
+            <div class="svc-ci">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Commande annulée = 0 GNF facturé
+            </div>
+          </div>
+          <div class="svc-card-note"><strong>Inclus dans le tarif de 70 000 GNF.</strong> Aucun frais séparé sur la confirmation téléphonique.</div>
+        </div>
+        <div class="svc-stats-grid" style="margin-top:3px">
+          <div class="svc-stat-card">
+            <div class="svc-stat-num">−40%</div>
+            <div class="svc-stat-label">Retours évités</div>
+            <div class="svc-stat-desc">vs sans confirmation</div>
+          </div>
+          <div class="svc-stat-card">
+            <div class="svc-stat-num">2h</div>
+            <div class="svc-stat-label">Délai de rappel</div>
+            <div class="svc-stat-desc">Après réception commande</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ SERVICE 02 — LIVRAISON ════════ -->
+<div class="svc-section section-full" id="livraison">
+  <div class="wrap">
+    <div class="svc-layout rev">
+      <div class="anim-r">
+        <span class="svc-number">02</span>
+        <div class="svc-eyebrow">Partout en Guinée · 6j/7</div>
+        <h2 class="svc-title">LIVRAISON<br>EXPRESS<br>NATIONALE</h2>
+        <p class="svc-desc">Des livreurs en moto déployés sur tout le territoire guinéen. De Conakry jusqu'à N'Zérékoré — même tarif, même qualité. Cash collecté à la porte du client.</p>
+        <div class="svc-list">
+          <div class="svc-item">
+            <div class="svc-item-ico">⚡</div>
+            <div class="svc-item-body">
+              <div class="svc-item-title">45 minutes à Conakry</div>
+              <div class="svc-item-desc">Délai moyen sur Conakry centre (Kaloum, Dixinn, Ratoma, Matam, Matoto).</div>
+            </div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-item-ico">🗺️</div>
+            <div class="svc-item-body">
+              <div class="svc-item-title">Couverture nationale complète</div>
+              <div class="svc-item-desc">Toutes les préfectures de Guinée — Kindia, Boké, Labé, Mamou, Kankan, Faranah, N'Zérékoré. Partout.</div>
+            </div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-item-ico">💵</div>
+            <div class="svc-item-body">
+              <div class="svc-item-title">Collecte cash à la porte</div>
+              <div class="svc-item-desc">Le livreur collecte le paiement, la monnaie est rendue. Aucun problème avec le client.</div>
+            </div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-item-ico">🔄</div>
+            <div class="svc-item-body">
+              <div class="svc-item-title">Retours 0 GNF</div>
+              <div class="svc-item-desc">Si le client est absent ou refuse, le colis retourne au dépôt. Aucun frais de retour.</div>
+            </div>
+          </div>
+        </div>
+        <a href="index.html#zones" class="btn-primary">Voir la carte de couverture →</a>
+      </div>
+      <div class="anim-l">
+        <div class="svc-stats-grid">
+          <div class="svc-stat-card">
+            <div class="svc-stat-num">45<span style="font-size:.4em">min</span></div>
+            <div class="svc-stat-label">Conakry centre</div>
+            <div class="svc-stat-desc">Délai moyen garanti</div>
+          </div>
+          <div class="svc-stat-card">
+            <div class="svc-stat-num">48h</div>
+            <div class="svc-stat-label">Régions nationales</div>
+            <div class="svc-stat-desc">Kindia · Boké · Labé…</div>
+          </div>
+          <div class="svc-stat-card">
+            <div class="svc-stat-num">6j</div>
+            <div class="svc-stat-label">Par semaine</div>
+            <div class="svc-stat-desc">Lundi → Samedi</div>
+          </div>
+          <div class="svc-stat-card">
+            <div class="svc-stat-num">0</div>
+            <div class="svc-stat-label">Frais de retour</div>
+            <div class="svc-stat-desc">Gratuit si non livré</div>
+          </div>
+        </div>
+        <div style="margin-top:3px;background:#0a0a0a;padding:28px;position:relative;overflow:hidden">
+          <div style="font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px">Délais par région</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06)">
+              <span style="font-size:13px;color:rgba(255,255,255,.7)">🏙️ Conakry</span>
+              <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:#00cc44;letter-spacing:1px">~45 min</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06)">
+              <span style="font-size:13px;color:rgba(255,255,255,.7)">🌿 Kindia · Coyah</span>
+              <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:#4ade80;letter-spacing:1px">24–48h</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06)">
+              <span style="font-size:13px;color:rgba(255,255,255,.7)">⛏️ Boké · Mamou · Labé</span>
+              <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:#86efac;letter-spacing:1px">24–72h</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0">
+              <span style="font-size:13px;color:rgba(255,255,255,.7)">🌾 Kankan · N'Zérékoré · +</span>
+              <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:#bbf7d0;letter-spacing:1px">48–72h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ SERVICE 03 — STOCKAGE ════════ -->
+<div class="svc-section section-full" id="stockage">
+  <div class="wrap">
+    <div class="svc-layout">
+      <div class="anim-l">
+        <span class="svc-number">03</span>
+        <div class="svc-eyebrow">Dépôt sécurisé · Conakry</div>
+        <h2 class="svc-title">STOCKAGE<br>& DÉPÔT<br>SÉCURISÉ</h2>
+        <p class="svc-desc">Votre stock reçu, inventorié et sécurisé dans notre dépôt à Conakry. Suivi en temps réel via le dashboard. Prêt à expédier dès que la commande est confirmée.</p>
+        <div class="svc-list">
+          <div class="svc-item">
+            <div class="svc-item-ico">📦</div>
+            <div class="svc-item-body">
+              <div class="svc-item-title">Réception & inventaire</div>
+              <div class="svc-item-desc">On réceptionne votre stock depuis la Chine, Dubaï ou le Maroc. Comptage et enregistrement immédiat.</div>
+            </div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-item-ico">🔒</div>
+            <div class="svc-item-body">
+              <div class="svc-item-title">Dépôt fermé & sécurisé</div>
+              <div class="svc-item-desc">Accès contrôlé. Surveillance permanente. Aucun produit ne quitte le dépôt sans autorisation.</div>
+            </div>
+          </div>
+          <div class="svc-item">
+            <div class="svc-item-ico">📊</div>
+            <div class="svc-item-body">
+              <div class="svc-item-title">Suivi temps réel</div>
+              <div class="svc-item-desc">Votre niveau de stock disponible dans votre dashboard Rapido, mis à jour après chaque expédition.</div>
+            </div>
+          </div>
+        </div>
+        <div class="svc-tag svc-tag-red" style="display:inline-flex;margin-bottom:24px">✅ Inclus dans le tarif de 70 000 GNF — 0 frais de stockage</div>
+        <br>
+        <a href="https://wa.me/2246220000000?text=Stockage%20Rapido" target="_blank" rel="noopener" class="btn-primary">Déposer mon stock →</a>
+      </div>
+      <div class="anim-r">
+        <div class="crm-preview">
+          <div class="crm-top-bar">
+            <div class="crm-dot r"></div><div class="crm-dot y"></div><div class="crm-dot g"></div>
+            <div class="crm-url">🔒 app.rapido.gn/stock</div>
+          </div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:12px">Gestion de Stock — Temps Réel</div>
+          <div class="crm-kpi-grid">
+            <div class="crm-kpi green">
+              <div class="crm-kpi-val">247</div>
+              <div class="crm-kpi-lbl">Unités en stock</div>
+            </div>
+            <div class="crm-kpi amber">
+              <div class="crm-kpi-val">18</div>
+              <div class="crm-kpi-lbl">En transit (livraison)</div>
+            </div>
+          </div>
+          <div class="crm-bar-wrap">
+            <div class="crm-bar-label">Top produits en stock</div>
+            <div class="crm-bar-row"><span class="crm-bar-name">Sac Mode</span><div class="crm-bar-track"><div class="crm-bar-fill" style="width:85%"></div></div><span class="crm-bar-val">102</span></div>
+            <div class="crm-bar-row"><span class="crm-bar-name">Montre</span><div class="crm-bar-track"><div class="crm-bar-fill" style="width:60%"></div></div><span class="crm-bar-val">72</span></div>
+            <div class="crm-bar-row"><span class="crm-bar-name">Chaussures</span><div class="crm-bar-track"><div class="crm-bar-fill" style="width:45%"></div></div><span class="crm-bar-val">54</span></div>
+            <div class="crm-bar-row"><span class="crm-bar-name">Crème</span><div class="crm-bar-track"><div class="crm-bar-fill" style="width:25%"></div></div><span class="crm-bar-val">19</span></div>
+          </div>
+          <div style="margin-top:12px;padding:12px;background:rgba(0,204,68,.08);border:1px solid rgba(0,204,68,.2);border-radius:4px;font-size:11px;color:rgba(0,204,68,.9)">
+            ✅ Dernier inventaire : Aujourd'hui 09h14 · 247 unités confirmées
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ SERVICE 04 — SOURCING ════════ -->
+<div class="svc-section section-full" id="sourcing">
+  <div class="wrap">
+    <div class="svc-layout rev">
+      <div class="anim-r">
+        <span class="svc-number">04</span>
+        <div class="svc-eyebrow">Chine · Dubaï · Prix usine</div>
+        <h2 class="svc-title">SOURCING<br>CHINE<br>& DUBAÏ</h2>
+        <p class="svc-desc">Produit gagnant identifié ? Rapido le source pour vous. Prix usine, contrôle qualité, dédouanement et livraison directement dans notre dépôt à Conakry — tout géré.</p>
+        <div class="country-cards">
+          <div class="country-card">
+            <span class="country-flag">🇨🇳</span>
+            <div class="country-name">Chine</div>
+            <div class="country-sub">Guangzhou · Yiwu · Shenzhen<br>Mode, électronique, cosmétiques</div>
+            <div class="country-delay">⏱ Délai 15–25 jours</div>
+          </div>
+          <div class="country-card">
+            <span class="country-flag">🇦🇪</span>
+            <div class="country-name">Dubaï</div>
+            <div class="country-sub">Dragon Mart · Deira<br>Produits premium, hub GCC</div>
+            <div class="country-delay">⏱ Délai 7–12 jours</div>
+          </div>
+        </div>
+        <a href="https://wa.me/2246220000000?text=Sourcing%20Rapido" target="_blank" rel="noopener" class="btn-primary">Demander un devis →</a>
+      </div>
+      <div class="anim-l">
+        <div class="sourcing-steps">
+          <div class="s-step">
+            <div class="s-step-n">01</div>
+            <div>
+              <div class="s-step-title">Vous envoyez la demande</div>
+              <div class="s-step-desc">Photo du produit, quantité souhaitée, budget maximum — en 2 minutes sur WhatsApp.</div>
+            </div>
+          </div>
+          <div class="s-step">
+            <div class="s-step-n">02</div>
+            <div>
+              <div class="s-step-title">On négocie au prix usine</div>
+              <div class="s-step-desc">Notre équipe en Chine ou à Dubaï contacte directement les fournisseurs et négocie le meilleur prix.</div>
+            </div>
+          </div>
+          <div class="s-step">
+            <div class="s-step-n">03</div>
+            <div>
+              <div class="s-step-title">Contrôle qualité & expédition</div>
+              <div class="s-step-desc">Inspection avant départ. Photos et vidéos envoyées pour validation. Dédouanement géré par Rapido.</div>
+            </div>
+          </div>
+          <div class="s-step">
+            <div class="s-step-n">04</div>
+            <div>
+              <div class="s-step-title">Livraison dans notre dépôt Conakry</div>
+              <div class="s-step-desc">Votre stock arrive directement chez nous, inventorié et prêt à vendre. Vous lancez vos pubs.</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:3px;padding:20px 24px;background:var(--red-mid);border-left:3px solid var(--red)">
+          <div style="font-size:12px;color:var(--muted);line-height:1.7">💡 <strong style="color:var(--ink)">Dévis gratuit sous 24h.</strong> Aucun engagement avant validation du prix par votre côté.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ SERVICE 05 — INTERNATIONAL ════════ -->
+<div class="svc-section section-full" id="international">
+  <div class="wrap">
+    <div class="svc-layout">
+      <div class="anim-l">
+        <span class="svc-number">05</span>
+        <div class="svc-eyebrow">Maroc · Algérie · Tunisie · Égypte</div>
+        <h2 class="svc-title">VOUS VENDEZ<br>EN AFRIQUE,<br><em>ON LIVRE EN GUINÉE</em></h2>
+        <p class="svc-desc">Vous êtes basé hors de Guinée et vous faites des pubs COD ciblées sur la Guinée ? Rapido est votre équipe logistique sur le terrain. Vous lancez les campagnes, on livre et on vous reverse en USDT via Binance.</p>
+        <div class="intl-grid">
+          <div class="intl-card">
+            <span class="intl-flag">🇲🇦</span>
+            <div class="intl-name">Maroc</div>
+            <div class="intl-desc">Casablanca, Marrakech — vendez sur Facebook/TikTok GN depuis le Maroc.</div>
+          </div>
+          <div class="intl-card">
+            <span class="intl-flag">🇩🇿</span>
+            <div class="intl-name">Algérie</div>
+            <div class="intl-desc">Alger, Oran — COD Guinée depuis l'Algérie, on gère la logistique terrain.</div>
+          </div>
+          <div class="intl-card">
+            <span class="intl-flag">🇹🇳</span>
+            <div class="intl-name">Tunisie</div>
+            <div class="intl-desc">E-commerce cross-border vers la Guinée — vous gérez les pubs, on livre.</div>
+          </div>
+          <div class="intl-card">
+            <span class="intl-flag">🌍</span>
+            <div class="intl-name">Partout</div>
+            <div class="intl-desc">Reversement USDT Binance 2×/semaine. Aucune contrainte bancaire.</div>
+          </div>
+        </div>
+        <a href="https://wa.me/2246220000000?text=Bonjour%20Rapido%2C%20je%20suis%20hors%20Guin%C3%A9e" target="_blank" rel="noopener" class="btn-primary">Je suis hors Guinée — Démarrer →</a>
+      </div>
+      <div class="anim-r">
+        <div class="svc-big-card" data-icon="🌍" style="background:#0a0a0a">
+          <div class="svc-card-label">Reversement international</div>
+          <div class="svc-card-num" style="color:#fff">USDT</div>
+          <div class="svc-card-unit">via Binance · 2×/semaine</div>
+          <div class="svc-card-items">
+            <div class="svc-ci">
+              <svg viewBox="0 0 24 24" stroke="#4ade80"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="color:rgba(255,255,255,.7)">Reversement lundi & jeudi</span>
+            </div>
+            <div class="svc-ci">
+              <svg viewBox="0 0 24 24" stroke="#4ade80"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="color:rgba(255,255,255,.7)">0% de frais de reversement</span>
+            </div>
+            <div class="svc-ci">
+              <svg viewBox="0 0 24 24" stroke="#4ade80"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="color:rgba(255,255,255,.7)">Onboarding 100% à distance</span>
+            </div>
+            <div class="svc-ci">
+              <svg viewBox="0 0 24 24" stroke="#4ade80"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="color:rgba(255,255,255,.7)">Rapport de performance hebdomadaire</span>
+            </div>
+          </div>
+          <div class="svc-card-note" style="background:rgba(255,255,255,.05)"><strong style="color:#fff">Zéro présence requise en Guinée.</strong> Vous n'avez jamais besoin de vous déplacer.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ════════ CTA FINAL ════════ -->
+<div class="mini-footer section-full">
+  <h2 class="mini-footer-h">PRÊT À DÉMARRER ?</h2>
+  <p class="mini-footer-p">Un seul tarif · 70 000 GNF par commande livrée · Partout en Guinée</p>
+  <div class="mini-footer-btns">
+    <a href="https://wa.me/2246220000000?text=Bonjour%20Rapido%2C%20je%20veux%20d%C3%A9marrer%20%F0%9F%9A%80" target="_blank" rel="noopener" class="btn-primary" style="background:#25D366">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+      Démarrer sur WhatsApp
+    </a>
+    <a href="tarifs.html" class="btn-sec" style="border-color:rgba(255,255,255,.3);color:#fff">Voir les tarifs →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="f-inner">
+    <div>
+      <div class="f-logo">RAPIDO<span>.</span></div>
+      <p class="f-desc">La première société de livraison Cash on Delivery partout en Guinée.</p>
+      <div class="f-tag">LIVRÉ VITE · LIVRÉ BIEN</div>
+    </div>
+    <div class="f-col">
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="tarifs.html">Tarifs</a></li>
+        <li><a href="index.html#zones">Couverture</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#confirmation">Confirmation COD</a></li>
+        <li><a href="#livraison">Livraison nationale</a></li>
+        <li><a href="#stockage">Stockage</a></li>
+        <li><a href="#sourcing">Sourcing</a></li>
+        <li><a href="#international">Hors Guinée</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="https://wa.me/2246220000000" target="_blank">WhatsApp Business</a></li>
+        <li><a href="mailto:contact@rapido.gn">contact@rapido.gn</a></li>
+        <li><a href="tarifs.html" style="color:var(--red);font-weight:700">Voir les tarifs →</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <p>© 2026 Rapido Guinée. Tous droits réservés.</p>
+    <div class="f-legal"><a href="/mentions-legales.html">Mentions légales</a><a href="/cgu.html">CGU</a></div>
+    <p style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:3px;color:rgba(167,0,0,.35)">LIVRÉ VITE · LIVRÉ BIEN</p>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const p=document.getElementById('prog'),t=document.documentElement.scrollHeight-window.innerHeight;
+  if(p)p.style.width=(t>0?(window.scrollY/t*100):0)+'%';
+  document.getElementById('navbar').classList.toggle('stuck',window.scrollY>60);
+},{passive:true});
+function toggleMob(){const m=document.getElementById('mob');m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':'';}
+function closeMob(){document.getElementById('mob').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMob();});
+requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.05,rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.anim,.anim-l,.anim-r,.stagger').forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.top<window.innerHeight)el.classList.add('in');
+    else io.observe(el);
+  });
+  setTimeout(()=>document.querySelectorAll('.anim:not(.in),.anim-l:not(.in),.anim-r:not(.in),.stagger:not(.in)').forEach(el=>el.classList.add('in')),800);
+}));
+</script>
+</body>
+</html>

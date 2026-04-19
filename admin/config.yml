@@ -1,0 +1,177 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Activer l'interface éditoriale
+publish_mode: editorial_workflow
+
+# Dossier pour les médias (photos, vidéos)
+media_folder: "images"
+public_folder: "/images"
+
+# Langue de l'interface
+locale: fr
+
+collections:
+
+  # ════════════════════════════════
+  # PARAMÈTRES GÉNÉRAUX DU SITE
+  # ════════════════════════════════
+  - name: "parametres"
+    label: "⚙️ Paramètres du site"
+    files:
+
+      - name: "general"
+        label: "Informations générales"
+        file: "data/general.json"
+        fields:
+          - { label: "Nom de la société", name: "nom", widget: "string", default: "Rapido" }
+          - { label: "Slogan", name: "slogan", widget: "string", default: "Livré Vite · Livré Bien" }
+          - { label: "Numéro WhatsApp", name: "whatsapp", widget: "string", default: "2246220000000", hint: "Format international sans + ex: 2246220000000" }
+          - { label: "Email de contact", name: "email", widget: "string", default: "contact@rapido.gn" }
+          - { label: "Adresse", name: "adresse", widget: "string", default: "Conakry, Guinée" }
+          - { label: "Tarif par commande (GNF)", name: "tarif", widget: "number", default: 70000 }
+          - { label: "Taux de confirmation (%)", name: "taux_confirmation", widget: "number", default: 95 }
+          - { label: "Délai livraison Conakry", name: "delai_conakry", widget: "string", default: "45 minutes" }
+
+  # ════════════════════════════════
+  # PAGE ACCUEIL
+  # ════════════════════════════════
+  - name: "accueil"
+    label: "🏠 Page Accueil"
+    files:
+
+      - name: "hero"
+        label: "Section principale (Hero)"
+        file: "data/hero.json"
+        fields:
+          - { label: "Titre ligne 1", name: "titre1", widget: "string", default: "LIVRÉ" }
+          - { label: "Titre ligne 2", name: "titre2", widget: "string", default: "VITE." }
+          - { label: "Titre ligne 3 (rouge)", name: "titre3", widget: "string", default: "LIVRÉ BIEN." }
+          - { label: "Description principale", name: "description", widget: "text", default: "La première société de livraison Cash on Delivery en Guinée." }
+          - { label: "Badge (petit texte en haut)", name: "badge", widget: "string", default: "N°1 COD · Partout en Guinée 🇬🇳" }
+
+      - name: "statistiques"
+        label: "Statistiques (bande rouge)"
+        file: "data/stats.json"
+        fields:
+          - label: "Statistiques"
+            name: "stats"
+            widget: "list"
+            fields:
+              - { label: "Chiffre", name: "chiffre", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+
+  # ════════════════════════════════
+  # TÉMOIGNAGES
+  # ════════════════════════════════
+  - name: "temoignages"
+    label: "⭐ Témoignages clients"
+    folder: "data/temoignages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nom du client", name: "nom", widget: "string" }
+      - { label: "Rôle / Activité", name: "role", widget: "string", hint: "Ex: E-commerce Mode — Conakry" }
+      - { label: "Initiales (2 lettres pour l'avatar)", name: "initiales", widget: "string", hint: "Ex: YB" }
+      - { label: "Témoignage", name: "body", widget: "text" }
+      - { label: "Note (étoiles)", name: "note", widget: "select", options: ["5", "4", "3"], default: "5" }
+      - { label: "Date", name: "date", widget: "string", hint: "Ex: Janvier 2026" }
+      - { label: "Photo du client (optionnel)", name: "photo", widget: "image", required: false }
+
+  # ════════════════════════════════
+  # ZONES DE LIVRAISON
+  # ════════════════════════════════
+  - name: "zones"
+    label: "🗺️ Zones de livraison"
+    folder: "data/zones"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nom de la zone", name: "nom", widget: "string", hint: "Ex: Conakry — Hub Principal" }
+      - { label: "Emoji", name: "emoji", widget: "string", hint: "Ex: 🏙️" }
+      - { label: "Sous-titre", name: "sous_titre", widget: "string", hint: "Ex: Kaloum · Dixinn · Ratoma" }
+      - { label: "Délai de livraison", name: "delai", widget: "string", hint: "Ex: 45 minutes" }
+      - { label: "Statut", name: "statut", widget: "select", options: ["Actif", "Bientôt"], default: "Actif" }
+
+  # ════════════════════════════════
+  # SERVICES
+  # ════════════════════════════════
+  - name: "services"
+    label: "🚀 Services"
+    folder: "data/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Numéro du service", name: "numero", widget: "string", hint: "Ex: 01" }
+      - { label: "Titre du service", name: "titre", widget: "string" }
+      - { label: "Sous-titre (eyebrow)", name: "sous_titre", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Emoji icône", name: "emoji", widget: "string" }
+      - { label: "Photo illustrative", name: "photo", widget: "image", required: false }
+      - label: "Points clés du service"
+        name: "points"
+        widget: "list"
+        fields:
+          - { label: "Emoji", name: "emoji", widget: "string" }
+          - { label: "Titre du point", name: "titre", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+
+  # ════════════════════════════════
+  # FAQ
+  # ════════════════════════════════
+  - name: "faq"
+    label: "❓ FAQ (Questions fréquentes)"
+    folder: "data/faq"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Question", name: "question", widget: "string" }
+      - { label: "Réponse", name: "body", widget: "text" }
+      - { label: "Ordre d'affichage", name: "ordre", widget: "number", default: 1 }
+
+  # ════════════════════════════════
+  # ACTUALITÉS / PUBLICATIONS
+  # ════════════════════════════════
+  - name: "actualites"
+    label: "📢 Actualités & Publications"
+    folder: "data/actualites"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date de publication", name: "date", widget: "datetime" }
+      - { label: "Image principale", name: "image", widget: "image", required: false }
+      - { label: "Résumé (affiché dans la liste)", name: "resume", widget: "text" }
+      - { label: "Contenu complet", name: "body", widget: "markdown" }
+      - { label: "Publié", name: "publie", widget: "boolean", default: true }
+      - label: "Catégorie"
+        name: "categorie"
+        widget: "select"
+        options:
+          - { label: "Annonce", value: "annonce" }
+          - { label: "Offre spéciale", value: "offre" }
+          - { label: "Nouvelle zone", value: "zone" }
+          - { label: "Actualité", value: "actualite" }
+
+  # ════════════════════════════════
+  # GALERIE PHOTOS
+  # ════════════════════════════════
+  - name: "galerie"
+    label: "📸 Galerie photos"
+    folder: "data/galerie"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre de la photo", name: "titre", widget: "string" }
+      - { label: "Photo", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "string", required: false }
+      - label: "Catégorie"
+        name: "categorie"
+        widget: "select"
+        options:
+          - { label: "Équipe", value: "equipe" }
+          - { label: "Livreurs", value: "livreurs" }
+          - { label: "Dépôt / Stock", value: "depot" }
+          - { label: "Livraisons", value: "livraisons" }
+          - { label: "Bureau", value: "bureau" }

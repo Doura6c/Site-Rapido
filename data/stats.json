@@ -1,0 +1,8 @@
+{
+  "stats": [
+    { "chiffre": "70 000", "description": "GNF par commande livrée" },
+    { "chiffre": "95%", "description": "Taux de confirmation" },
+    { "chiffre": "45min", "description": "Délai moyen Conakry" },
+    { "chiffre": "0 GNF", "description": "Frais sur retours" }
+  ]
+}
