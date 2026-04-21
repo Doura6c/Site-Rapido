@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Album Photos & Vidéos — Rapido Guinée | Livraison COD</title>
+<meta name="description" content="Découvrez Rapido en images et vidéos : nos livreurs à Conakry, notre dépôt logistique, nos agents de confirmation COD et nos livraisons partout en Guinée.">
+<meta name="keywords" content="Rapido Guinée photos, livraison COD Conakry, livreurs Guinée, dépôt logistique Conakry">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#A70000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:#0a0a0a;color:#fff;font-family:'Barlow',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+:root{--red:#A70000;--green:#00cc44;--ease:cubic-bezier(.16,1,.3,1)}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* PROGRESS */
+#prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#A70000,#ff4444);z-index:9999;width:0%;transition:width .08s linear}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;background:rgba(10,10,10,.95);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:space-between;padding:0 56px;border-bottom:1px solid rgba(255,255,255,.08);transition:all .3s}
+nav.stuck{box-shadow:0 2px 20px rgba(0,0,0,.3)}
+.n-logo{font-family:'Bebas Neue';font-size:24px;letter-spacing:5px;color:#fff;text-decoration:none}
+.n-logo span{color:var(--red)}
+.n-links{display:flex;align-items:center;gap:2px;list-style:none}
+.n-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;padding:8px 14px;transition:color .2s}
+.n-links a:hover,.n-links a.active{color:#fff}
+.n-cta{background:var(--red)!important;color:#fff!important;padding:9px 22px!important}
+.n-cta:hover{background:#850000!important}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:#fff}
+.mob{position:fixed;inset:0;background:#0a0a0a;z-index:510;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s,visibility .3s}
+.mob.open{opacity:1;visibility:visible;pointer-events:auto}
+.mob a{font-family:'Bebas Neue';font-size:48px;letter-spacing:4px;color:#fff;text-decoration:none;line-height:1.1}
+.mob a:hover{color:var(--red)}
+.mob-close{position:absolute;top:20px;right:24px;background:none;border:none;font-size:28px;cursor:pointer;color:#fff}
+
+/* PAGE HERO */
+.page-hero{padding:140px 56px 80px;position:relative;overflow:hidden;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);border-bottom:1px solid rgba(255,255,255,.08)}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(167,0,0,.15) 0%,transparent 60%)}
+.page-hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:2}
+.page-eyebrow{font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(167,0,0,.8);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.page-eyebrow::before{content:'';width:20px;height:1px;background:rgba(167,0,0,.5);display:block}
+.page-h1{font-family:'Bebas Neue';font-size:clamp(64px,10vw,120px);line-height:.85;color:#fff;letter-spacing:-1px;margin-bottom:20px}
+.page-h1 em{color:var(--red);font-style:normal}
+.page-desc{font-size:17px;color:rgba(255,255,255,.45);font-weight:300;max-width:600px;line-height:1.75;margin-bottom:40px}
+.page-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);padding:9px 20px;font-family:'Barlow Condensed';font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .25s;border-radius:2px}
+.tab-btn:hover{background:rgba(255,255,255,.08);color:#fff}
+.tab-btn.active{background:var(--red);border-color:var(--red);color:#fff}
+
+/* SLIDESHOW HERO (grande bannière défilante) */
+.hero-slideshow{position:relative;height:500px;overflow:hidden;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw)}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity .8s var(--ease)}
+.hero-slide.active{opacity:1}
+.hero-slide img{width:100%;height:100%;object-fit:cover}
+.hero-slide-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.6) 0%,rgba(0,0,0,.2) 50%,transparent 100%)}
+.hero-slide-info{position:absolute;bottom:40px;left:56px;z-index:2}
+.hero-slide-label{font-family:'Bebas Neue';font-size:28px;color:#fff;letter-spacing:2px}
+.hero-slide-sub{font-size:12px;color:rgba(255,255,255,.5);letter-spacing:1px;margin-top:4px}
+.slideshow-controls{position:absolute;bottom:40px;right:56px;z-index:2;display:flex;gap:8px}
+.sc-btn{width:40px;height:40px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:16px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.sc-btn:hover{background:var(--red);border-color:var(--red)}
+.slideshow-dots{position:absolute;bottom:48px;left:50%;transform:translateX(-50%);z-index:2;display:flex;gap:6px}
+.sd{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:all .3s}
+.sd.active{background:#fff;width:20px;border-radius:3px}
+
+/* SECTIONS */
+.section{padding:80px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 56px}
+.section-eyebrow{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.section-eyebrow::before{content:'';width:16px;height:1px;background:var(--red);display:block}
+.section-title{font-family:'Bebas Neue';font-size:clamp(40px,5vw,64px);color:#fff;line-height:.9;margin-bottom:32px;letter-spacing:1px}
+.section-title em{color:var(--red);font-style:normal}
+
+/* PHOTO GRID */
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px}
+.photo-grid-hero{display:grid;grid-template-columns:2fr 1fr;gap:8px;margin-bottom:8px}
+.photo-card{position:relative;overflow:hidden;cursor:pointer;background:#1a1a1a}
+.photo-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease);aspect-ratio:4/3}
+.photo-card.tall img{aspect-ratio:3/4}
+.photo-card.wide img{aspect-ratio:16/7}
+.photo-card:hover img{transform:scale(1.05)}
+.photo-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 50%);opacity:0;transition:opacity .35s}
+.photo-card:hover .photo-card-overlay{opacity:1}
+.photo-card-info{position:absolute;bottom:0;left:0;right:0;padding:16px 20px;transform:translateY(8px);opacity:0;transition:all .35s}
+.photo-card:hover .photo-card-info{transform:translateY(0);opacity:1}
+.photo-card-label{font-family:'Barlow Condensed';font-size:14px;font-weight:700;letter-spacing:1.5px;color:#fff;text-transform:uppercase}
+.photo-card-sub{font-size:11px;color:rgba(255,255,255,.6);margin-top:3px}
+.photo-badge{position:absolute;top:12px;left:12px;background:var(--red);color:#fff;font-size:8px;font-weight:700;letter-spacing:2px;padding:4px 10px;text-transform:uppercase;font-family:'Barlow Condensed'}
+
+/* VIDEO SECTION */
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.video-card{position:relative;overflow:hidden;cursor:pointer;background:#111;border-radius:2px}
+.video-card-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .5s var(--ease);filter:brightness(.8)}
+.video-card:hover .video-card-thumb{transform:scale(1.04);filter:brightness(.9)}
+.video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:rgba(167,0,0,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.video-card:hover .video-play{background:var(--red);transform:translate(-50%,-50%) scale(1.1)}
+.video-play svg{width:20px;height:20px;fill:#fff;margin-left:4px}
+.video-card-info{padding:16px}
+.video-card-label{font-family:'Barlow Condensed';font-size:14px;font-weight:700;letter-spacing:1px;color:#fff;text-transform:uppercase}
+.video-card-sub{font-size:11px;color:rgba(255,255,255,.4);margin-top:4px}
+.video-duration{position:absolute;bottom:60px;right:12px;background:rgba(0,0,0,.8);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:2px;letter-spacing:.5px}
+
+/* LIGHTBOX */
+#lightbox{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:9000;display:none;align-items:center;justify-content:center}
+#lightbox.open{display:flex}
+#lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:2px}
+.lb-close{position:absolute;top:20px;right:24px;background:rgba(255,255,255,.1);border:none;color:#fff;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lb-close:hover{background:var(--red)}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:none;color:#fff;width:44px;height:44px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lb-prev{left:20px}.lb-next{right:20px}
+.lb-prev:hover,.lb-next:hover{background:var(--red)}
+.lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-size:12px;color:rgba(255,255,255,.5);letter-spacing:2px}
+
+/* TICKER */
+.ticker-wrap{height:40px;overflow:hidden;background:var(--red);position:relative;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw)}
+.ticker-inner{display:flex;width:max-content;animation:ticker 25s linear infinite}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.ticker-item{display:flex;align-items:center;height:40px;padding:0 24px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.85);white-space:nowrap;gap:24px}
+.ticker-item span{color:rgba(255,255,255,.4)}
+
+/* ANIMATIONS */
+.anim,.anim-l,.anim-r{opacity:0;transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.anim{transform:translateY(24px)}.anim-l{transform:translateX(-24px)}.anim-r{transform:translateX(24px)}
+.anim.in,.anim-l.in,.anim-r.in{opacity:1;transform:none}
+
+/* FOOTER */
+footer{background:#050505;padding:48px 56px;border-top:1px solid rgba(255,255,255,.06);width:100vw;max-width:100vw;margin-left:calc(50% - 50vw)}
+.f-bottom{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.f-logo{font-family:'Bebas Neue';font-size:24px;letter-spacing:4px;color:#fff}
+.f-logo span{color:var(--red)}
+.f-links{display:flex;gap:24px;flex-wrap:wrap}
+.f-links a{font-size:11px;color:rgba(255,255,255,.35);text-decoration:none;letter-spacing:1px;transition:color .2s}
+.f-links a:hover{color:#fff}
+.f-copy{font-size:11px;color:rgba(255,255,255,.2)}
+
+@media(max-width:900px){
+  nav{padding:0 24px}.n-links{display:none}.hamburger{display:flex}
+  .page-hero{padding:120px 24px 60px}
+  .hero-slideshow{height:320px}
+  .hero-slide-info{left:24px;bottom:24px}
+  .slideshow-controls{right:24px;bottom:24px}
+  .photo-grid,.photo-grid-hero{grid-template-columns:1fr 1fr}
+  .video-grid{grid-template-columns:1fr 1fr}
+  .wrap{padding:0 24px}
+  footer{padding:32px 24px}
+}
+@media(max-width:480px){
+  .photo-grid,.photo-grid-hero,.video-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<nav id="navbar">
+  <a href="index.html" class="n-logo">RAPIDO<span>.</span></a>
+  <ul class="n-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="tarifs.html">Tarifs</a></li>
+    <li><a href="index.html#zones">Couverture</a></li>
+    <li><a href="album.html" class="active">Album</a></li>
+    <li><a href="https://wa.me/2246220000000?text=Bonjour%20Rapido%20%F0%9F%9A%80" target="_blank" rel="noopener" class="n-cta">Démarrer →</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="index.html" onclick="closeMob()">Accueil</a>
+  <a href="services.html" onclick="closeMob()">Services</a>
+  <a href="tarifs.html" onclick="closeMob()">Tarifs</a>
+  <a href="album.html" onclick="closeMob()">Album</a>
+  <a href="https://wa.me/2246220000000" target="_blank" onclick="closeMob()" style="color:#25D366">WhatsApp →</a>
+</div>
+
+<main>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">Rapido Guinée · Galerie</div>
+    <h1 class="page-h1">ALBUM<br><em>PHOTOS & VIDÉOS</em></h1>
+    <p class="page-desc">Découvrez Rapido en action — nos livreurs, nos agents, notre dépôt logistique et nos livraisons partout en Guinée.</p>
+    <div class="page-tabs">
+      <button class="tab-btn active" onclick="showSection('all',this)">Tout voir</button>
+      <button class="tab-btn" onclick="showSection('livraison',this)">🏍️ Livraisons</button>
+      <button class="tab-btn" onclick="showSection('depot',this)">📦 Dépôt & Stock</button>
+      <button class="tab-btn" onclick="showSection('equipe',this)">👥 Équipe</button>
+      <button class="tab-btn" onclick="showSection('videos',this)">🎬 Vidéos</button>
+    </div>
+  </div>
+</div>
+
+<!-- GRANDE BANDEROLE HERO DÉFILANTE -->
+<div class="hero-slideshow">
+  <div class="hero-slide active">
+    <img src="/photos/Copilot_20260420_222200.png" alt="Livreur Rapido en route à Conakry">
+    <div class="hero-slide-overlay"></div>
+    <div class="hero-slide-info">
+      <div class="hero-slide-label">Livraison Express · Conakry</div>
+      <div class="hero-slide-sub">Rapido — N°1 COD en Guinée · 45 min</div>
+    </div>
+  </div>
+  <div class="hero-slide">
+    <img src="/photos/Copilot_20260420_220724.png" alt="Remise colis client">
+    <div class="hero-slide-overlay"></div>
+    <div class="hero-slide-info">
+      <div class="hero-slide-label">Livraison à domicile</div>
+      <div class="hero-slide-sub">Cash on Delivery · Partout en Guinée</div>
+    </div>
+  </div>
+  <div class="hero-slide">
+    <img src="/photos/Copilot_20260420_211602.png" alt="Dépôt Rapido">
+    <div class="hero-slide-overlay"></div>
+    <div class="hero-slide-info">
+      <div class="hero-slide-label">Dépôt & Stockage Sécurisé</div>
+      <div class="hero-slide-sub">Entrepôt Rapido · Conakry, Guinée</div>
+    </div>
+  </div>
+  <div class="hero-slide">
+    <img src="/photos/Copilot_20260420_220900.png" alt="Équipe Rapido">
+    <div class="hero-slide-overlay"></div>
+    <div class="hero-slide-info">
+      <div class="hero-slide-label">Notre Équipe Rapido</div>
+      <div class="hero-slide-sub">Professionnels dédiés au COD en Guinée</div>
+    </div>
+  </div>
+  <div class="hero-slide">
+    <img src="/photos/Copilot_20260420_211403.png" alt="Agent confirmation">
+    <div class="hero-slide-overlay"></div>
+    <div class="hero-slide-info">
+      <div class="hero-slide-label">Confirmation Téléphonique COD</div>
+      <div class="hero-slide-sub">Taux 95%+ · Agents dédiés Rapido</div>
+    </div>
+  </div>
+  <div class="slideshow-controls">
+    <button class="sc-btn" onclick="prevSlide()">←</button>
+    <button class="sc-btn" onclick="nextSlide()">→</button>
+  </div>
+  <div class="slideshow-dots" id="slideDots"></div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">📸 Nos livreurs en action <span>●</span></span>
+    <span class="ticker-item">📦 Dépôt sécurisé Conakry <span>●</span></span>
+    <span class="ticker-item">📞 Agents confirmation COD <span>●</span></span>
+    <span class="ticker-item">🏍️ Livraison 45 min <span>●</span></span>
+    <span class="ticker-item">🇬🇳 Partout en Guinée <span>●</span></span>
+    <span class="ticker-item">📸 Nos livreurs en action <span>●</span></span>
+    <span class="ticker-item">📦 Dépôt sécurisé Conakry <span>●</span></span>
+    <span class="ticker-item">📞 Agents confirmation COD <span>●</span></span>
+    <span class="ticker-item">🏍️ Livraison 45 min <span>●</span></span>
+    <span class="ticker-item">🇬🇳 Partout en Guinée <span>●</span></span>
+  </div>
+</div>
+
+<!-- SECTION LIVRAISONS -->
+<div class="section" id="sec-livraison">
+  <div class="wrap">
+    <div class="section-eyebrow anim">Nos livreurs · Conakry & Guinée</div>
+    <h2 class="section-title anim">LIVRAISONS<br><em>EN ACTION</em></h2>
+    <div class="photo-grid-hero">
+      <div class="photo-card" onclick="openLightbox(0)">
+        <img src="/photos/Copilot_20260420_222200.png" alt="Livreur Rapido Conakry" class="wide">
+        <div class="photo-card-overlay"></div>
+        <div class="photo-card-info">
+          <div class="photo-card-label">Livraison Express</div>
+          <div class="photo-card-sub">Marché de Conakry · 45 min</div>
+        </div>
+        <div class="photo-badge">⚡ HERO</div>
+      </div>
+      <div class="photo-card" onclick="openLightbox(3)">
+        <img src="/photos/Copilot_20260420_220724.png" alt="Remise colis">
+        <div class="photo-card-overlay"></div>
+        <div class="photo-card-info">
+          <div class="photo-card-label">Livraison à domicile</div>
+          <div class="photo-card-sub">COD · Cash on Delivery</div>
+        </div>
+      </div>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card" onclick="openLightbox(1)">
+        <img src="/photos/Copilot_20260420_211456.png" alt="Livreur moto Guinée">
+        <div class="photo-card-overlay"></div>
+        <div class="photo-card-info">
+          <div class="photo-card-label">Livreur en route</div>
+          <div class="photo-card-sub">Conakry · Guinée 🇬🇳</div>
+        </div>
+        <div class="photo-badge">🏍️ LIVRAISON</div>
+      </div>
+      <div class="photo-card" onclick="openLightbox(0)">
+        <img src="/photos/Copilot_20260420_222200.png" alt="Livreur Conakry marché">
+        <div class="photo-card-overlay"></div>
+        <div class="photo-card-info">
+          <div class="photo-card-label">Marché de Conakry</div>
+          <div class="photo-card-sub">Livraison express COD</div>
+        </div>
+      </div>
+      <div class="photo-card" onclick="openLightbox(3)">
+        <img src="/photos/Copilot_20260420_220724.png" alt="Remise colis cliente">
+        <div class="photo-card-overlay"></div>
+        <div class="photo-card-info">
+          <div class="photo-card-label">Client satisfait</div>
+          <div class="photo-card-sub">Livraison COD réussie</div>
+        </div>
+        <div class="photo-badge">✓ COD</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION DÉPÔT & STOCK -->
+<div class="section" id="sec-depot">
+  <div class="wrap">
+    <div class="section-eyebrow anim">Dépôt · Conakry</div>
+    <h2 class="section-title anim">STOCKAGE &<br><em>LOGISTIQUE</em></h2>
+    <div class="photo-grid">
+      <div class="photo-card" onclick="openLightbox(2)">
+        <img src="/photos/Copilot_20260420_211602.png" alt="Agent stock dépôt">
+        <div class="photo-card-overlay"></div>
+        <div class="photo-card-info">
+          <div class="photo-card-label">Gestion de Stock</div>
+          <div class="photo-card-sub">Inventaire temps réel · Tablet</div>
+        </div>
+        <div class="photo-badge">📦 STOCK</div>
+      </div>
+      <div class="photo-card" onclick="openLightbox(4)">
+        <img src="/photos/Copilot_20260420_220900.png" alt="Équipe entrepôt Rapido">
+        <div class="photo-card-overlay"></div>
+        <div class="photo-card-info">
+          <div class="photo-card-label">Équipe Entrepôt</div>
+          <div class="photo-card-sub">Préparation commandes COD</div>
+        </div>
+      </div>
+      <div class="photo-card" onclick="openLightbox(2)">
+        <img src="/photos/Copilot_20260420_211602.png" alt="Dépôt Rapido boîtes">
+        <div class="photo-card-overlay"></div>
+        <div class="photo-card-info">
+          <div class="photo-card-label">Dépôt Sécurisé</div>
+          <div class="photo-card-sub">0 GNF frais de stockage</div>
+        </div>
+        <div class="photo-badge">🔒 SÉCURISÉ</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION ÉQUIPE -->
+<div class="section" id="sec-equipe">
+  <div class="wrap">
+    <div class="section-eyebrow anim">Nos équipes · Rapido Guinée</div>
+    <h2 class="section-title anim">L'ÉQUIPE<br><em>RAPIDO</em></h2>
+    <div class="photo-grid-hero">
+      <div class="photo-card" onclick="openLightbox(4)">
+        <img src="/photos/Copilot_20260420_220900.png" alt="Équipe Rapido entrepôt">
+        <div class="photo-card-overlay"></div>
+        <div class="photo-card-info">
+          <div class="photo-card-label">Notre Équipe</div>
+          <div class="photo-card-sub">Professionnels COD dédiés · Guinée</div>
+        </div>
+        <div class="photo-badge">👥 ÉQUIPE</div>
+      </div>
+      <div class="photo-card" onclick="openLightbox(5)">
+        <img src="/photos/Copilot_20260420_211403.png" alt="Agent confirmation COD">
+        <div class="photo-card-overlay"></div>
+        <div class="photo-card-info">
+          <div class="photo-card-label">Agent de Confirmation</div>
+          <div class="photo-card-sub">Taux 95%+ · COD Guinée</div>
+        </div>
+        <div class="photo-badge">📞 95%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION VIDÉOS -->
+<div class="section" id="sec-videos">
+  <div class="wrap">
+    <div class="section-eyebrow anim">Rapido en vidéo</div>
+    <h2 class="section-title anim">NOS<br><em>VIDÉOS</em></h2>
+    <div class="video-grid">
+      <!-- Vidéo 1 — placeholder YouTube -->
+      <div class="video-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <img src="/photos/Copilot_20260420_222200.png" alt="Vidéo livreur Rapido" class="video-card-thumb">
+        <div class="video-play"><svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg></div>
+        <div class="video-duration">1:30</div>
+        <div class="video-card-info">
+          <div class="video-card-label">Nos livreurs en action</div>
+          <div class="video-card-sub">Conakry · Guinée 🇬🇳</div>
+        </div>
+      </div>
+      <!-- Vidéo 2 -->
+      <div class="video-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <img src="/photos/Copilot_20260420_220900.png" alt="Vidéo dépôt Rapido" class="video-card-thumb">
+        <div class="video-play"><svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg></div>
+        <div class="video-duration">2:15</div>
+        <div class="video-card-info">
+          <div class="video-card-label">Visite de notre dépôt</div>
+          <div class="video-card-sub">Stockage & Logistique COD</div>
+        </div>
+      </div>
+      <!-- Vidéo 3 -->
+      <div class="video-card" onclick="openVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+        <img src="/photos/Copilot_20260420_211403.png" alt="Vidéo agent confirmation" class="video-card-thumb">
+        <div class="video-play"><svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg></div>
+        <div class="video-duration">0:45</div>
+        <div class="video-card-info">
+          <div class="video-card-label">Confirmation téléphonique</div>
+          <div class="video-card-sub">Comment ça marche ?</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:24px;padding:20px 24px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-left:3px solid var(--red)">
+      <div style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.7">
+        🎬 <strong style="color:#fff">Pour ajouter vos vraies vidéos :</strong> Uploadez-les sur YouTube → copiez le lien → remplacez l'URL dans le code. On s'en occupe ensemble !
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO MODAL -->
+<div id="videoModal" style="position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:9001;display:none;align-items:center;justify-content:center">
+  <button onclick="closeVideo()" style="position:absolute;top:20px;right:24px;background:rgba(255,255,255,.1);border:none;color:#fff;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center">✕</button>
+  <iframe id="videoFrame" width="900" height="506" frameborder="0" allowfullscreen style="max-width:90vw;max-height:80vh;border-radius:4px"></iframe>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-prev" onclick="lbPrev()">←</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-next" onclick="lbNext()">→</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+</main>
+
+<footer>
+  <div class="f-bottom">
+    <div class="f-logo">RAPIDO<span>.</span></div>
+    <div class="f-links">
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="album.html">Album</a>
+      <a href="https://wa.me/2246220000000" target="_blank" style="color:#25D366">WhatsApp</a>
+    </div>
+    <div class="f-copy">© 2026 Rapido Guinée · LIVRÉ VITE · LIVRÉ BIEN</div>
+  </div>
+</footer>
+
+<script>
+// NAV
+window.addEventListener('scroll',()=>{
+  const p=document.getElementById('prog'),t=document.documentElement.scrollHeight-window.innerHeight;
+  if(p)p.style.width=(t>0?(window.scrollY/t*100):0)+'%';
+  document.getElementById('navbar').classList.toggle('stuck',window.scrollY>60);
+},{passive:true});
+function toggleMob(){const m=document.getElementById('mob');m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':'';}
+function closeMob(){document.getElementById('mob').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){closeMob();closeLightbox();closeVideo();}
+  if(e.key==='ArrowLeft')lbPrev();
+  if(e.key==='ArrowRight')lbNext();
+});
+
+// ANIMATIONS
+requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.05});
+  document.querySelectorAll('.anim,.anim-l,.anim-r').forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('in');
+    else io.observe(el);
+  });
+}));
+
+// HERO SLIDESHOW
+let currentSlide=0;
+const slides=document.querySelectorAll('.hero-slide');
+const dotsContainer=document.getElementById('slideDots');
+slides.forEach((_,i)=>{
+  const d=document.createElement('div');
+  d.className='sd'+(i===0?' active':'');
+  d.onclick=()=>goSlide(i);
+  dotsContainer.appendChild(d);
+});
+function goSlide(n){
+  slides[currentSlide].classList.remove('active');
+  dotsContainer.children[currentSlide].classList.remove('active');
+  currentSlide=(n+slides.length)%slides.length;
+  slides[currentSlide].classList.add('active');
+  dotsContainer.children[currentSlide].classList.add('active');
+}
+function nextSlide(){goSlide(currentSlide+1);}
+function prevSlide(){goSlide(currentSlide-1);}
+setInterval(nextSlide,5000);
+
+// TABS
+function showSection(cat,btn){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const secs={livraison:'sec-livraison',depot:'sec-depot',equipe:'sec-equipe',videos:'sec-videos'};
+  if(cat==='all'){
+    document.querySelectorAll('.section').forEach(s=>s.style.display='');
+  } else {
+    document.querySelectorAll('.section').forEach(s=>s.style.display='none');
+    const target=document.getElementById(secs[cat]);
+    if(target){target.style.display='';target.scrollIntoView({behavior:'smooth',block:'start'});}
+  }
+}
+
+// LIGHTBOX
+const photos=[
+  '/photos/Copilot_20260420_222200.png',
+  '/photos/Copilot_20260420_211456.png',
+  '/photos/Copilot_20260420_211602.png',
+  '/photos/Copilot_20260420_220724.png',
+  '/photos/Copilot_20260420_220900.png',
+  '/photos/Copilot_20260420_211403.png',
+];
+let lbIndex=0;
+function openLightbox(i){
+  lbIndex=i;
+  document.getElementById('lbImg').src=photos[i];
+  document.getElementById('lbCounter').textContent=(i+1)+' / '+photos.length;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+function lbPrev(){openLightbox((lbIndex-1+photos.length)%photos.length);}
+function lbNext(){openLightbox((lbIndex+1)%photos.length);}
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLightbox();});
+
+// VIDEO MODAL
+function openVideo(url){
+  document.getElementById('videoFrame').src=url+'?autoplay=1';
+  document.getElementById('videoModal').style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeVideo(){
+  document.getElementById('videoFrame').src='';
+  document.getElementById('videoModal').style.display='none';
+  document.body.style.overflow='';
+}
+</script>
+</body>
+</html>
